@@ -1,0 +1,20 @@
+
+    #post{
+        display: flex;
+        flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     margin: 2%;
+    }
+    img{
+        width:200px;
+        border-radius: 100%;
+
+    }
+    hr{
+        
+          
+            
+            width: 5in;
+    }
+   
