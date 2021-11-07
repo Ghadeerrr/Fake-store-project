@@ -1,14 +1,14 @@
 const initialState = {
-    Allproducts:[]
+  products:[]
   };
 
   const products = (state = initialState, { type, payload }) => {
     switch (type) {
       case "SET_PRODUCTS":
-      console.log(state.Allproducts);
+      console.log(state.products);
       
         return {
-            Allproducts: payload,
+          products: payload,
         };
         
       default:
@@ -19,6 +19,7 @@ const initialState = {
   export default products;
 
   export const setProducts = (products) => {
+    console.log(products);
     return {
       type: "SET_PRODUCTS",
       payload: products,

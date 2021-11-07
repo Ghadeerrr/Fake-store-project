@@ -1,10 +1,12 @@
 // import the required components 
 import Home from "./components/Home";
-import Login from "./components/Login";
+import Cart from "./components/Cart";
+import Login from "./components/LogIn";
 import SignUp from "./components/SignUp";
 import ProductDetails from "./components/ProductDetails";
 import WishList from "./components/WishList";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
