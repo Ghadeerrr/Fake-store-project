@@ -25,9 +25,6 @@ function Products() {
 
   const state = useSelector((state) => {
     return {
-
-      products: state.products.Allproducts
-
       products: state.products.products
 
     };

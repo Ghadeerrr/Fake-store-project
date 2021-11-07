@@ -1,10 +1,3 @@
-
-function Product() {
- 
-    return(  
-     <div>
-      
-
 import { Button,Card } from 'react-bootstrap';
 import { useSelector } from "react-redux";
 
@@ -27,7 +20,6 @@ function Product({index}) {
     <Button variant="primary">Go somewhere</Button>
   </Card.Body>
 </Card>
-
    
      </div>
       
