@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setProducts } from "../reducers/products/products";
+import { setProducts,setFilter } from "../reducers/products/products";
 
 import Product from "./Product";
 import "./components.css";
@@ -18,6 +18,8 @@ function Products() {
       console.log(response.data);
       const action = setProducts(response.data);
       dispatch(action);
+      const action2 = setFilter(response.data);
+      dispatch(action2);
     }).catch(function (error) {
       console.error(error);
     });
@@ -25,7 +27,8 @@ function Products() {
 
   const state = useSelector((state) => {
     return {
-      products: state.products.products
+      products: state.products.products,
+      filter: state.products.filter
 
     };
   });
@@ -34,9 +37,9 @@ function Products() {
     return( 
       <div id="grid">
 
-            {/* {state.Allproducts.map((ele,index)=><Video ele={ele} index={index}/>)} */}
+          
 
-            {state.products.map((ele,index)=><Product index={index}/>)}
+            {state.filter.map((ele,index)=><Product index={index}/>)}
 
             </div>
    
