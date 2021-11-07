@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import { Provider } from "react-redux";
+import store from "./reducers/store";
 
 // const MenuList={name:"Pizza" ,price:"20$", image:"https://tse4.mm.bing.net/th?id=OIP.OIW9fG0-shrurAogM_eCWgHaHa&pid=Api&P=0&w=300&h=300"};
 // const d = <div id="menu">
@@ -14,8 +15,9 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-    {/* {d}  */}
+   <Provider store={store}>
+        <App />
+    </Provider>
   </React.StrictMode>
   ,
   document.getElementById('root')
