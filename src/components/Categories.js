@@ -1,45 +1,46 @@
 
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { setProducts,setFilter } from "../reducers/products/products";
 
+function Categories() {
+  const dispatch = useDispatch();
 
-function setFilter() {
+  const state = useSelector((state) => {
+    return {
+      products: state.products.products,
+      filter: state.products.filter
 
-  useEffect(() => {
+    };
+  });
 
-    axios.get('https://fakestoreapi.com/products')
-    .then(function (response) {
-      console.log(response.data);
-
-    }).catch(function (error) {
-      console.error(error);
-    });
-  },[]);
-}
-
+  function AllProducts() {
+    const action = setFilter(state.products);
+    dispatch(action);
+   
+  }
+ 
   function filterCategory(Category) {
 
-    useEffect(() => {
-  
-      axios.get(`https://fakestoreapi.com/${Category}`)
+    
+      axios.get(`https://fakestoreapi.com/products/category/${Category}`)
       .then(function (response) {
         console.log(response.data);
+        const action2 = setFilter(response.data);
+      dispatch(action2);
   
       }).catch(function (error) {
         console.error(error);
       });
-    },[]);
+  
 
   }
-
-
-function Categories() {
- 
     return(  
      <div>
 
       <nav>
       <div >
-          <button  onClick={()=>setFilter()}>All</button>
+          <button  onClick={()=>AllProducts()}>All</button>
           <button  onClick={()=>filterCategory("men's clothing")}>Men's Clothing</button>
           <button  onClick={()=>filterCategory("women's clothing")}> Women's Clothing</button>
           <button  onClick={()=>filterCategory("jewelery")}>Jewelery</button>

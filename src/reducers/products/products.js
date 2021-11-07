@@ -1,5 +1,6 @@
 const initialState = {
-  products:[]
+  products:[],
+  filter:[]
   };
 
   const products = (state = initialState, { type, payload }) => {
@@ -9,6 +10,14 @@ const initialState = {
       
         return {
           products: payload,
+          filter: state.filter
+        };
+        case "SET_FILTER":
+      console.log(state.filter);
+      
+        return {
+          products: state.products,
+          filter: payload
         };
         
       default:
@@ -23,6 +32,15 @@ const initialState = {
     return {
       type: "SET_PRODUCTS",
       payload: products,
+    };
+  };
+
+  export const setFilter = (Fproducts) => {
+    
+    console.log(Fproducts);
+    return {
+      type: "SET_FILTER",
+      payload: Fproducts,
     };
   };
 

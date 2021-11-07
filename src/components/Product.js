@@ -7,16 +7,16 @@ function Product({index}) {
  
   const state = useSelector((state) => {
     return {
-      products: state.products.products
+      filter: state.products.filter
     };
   });
 
     return(  
      <div>
       <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src={state.products[index].image} />
+  <Card.Img variant="top" src={state.filter[index].image} />
   <Card.Body>
-    <Card.Title>{state.products[index].title}</Card.Title>
+    <Card.Title>{state.filter[index].title}</Card.Title>
     <Button variant="primary">Go somewhere</Button>
   </Card.Body>
 </Card>
