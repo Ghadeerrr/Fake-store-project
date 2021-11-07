@@ -1,7 +1,7 @@
 
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setProducts,setFilter } from "../reducers/products/products";
+import { setFilter } from "../reducers/products/products";
 
 function Categories() {
   const dispatch = useDispatch();
