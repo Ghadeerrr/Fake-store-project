@@ -41,7 +41,7 @@ console.log(currentProduct);
  
     return(  
      <div>
-       <Categories/>
+       <Categories setCurrentPage={setCurrentPage}/>
       <Products currentProduct={currentProduct}/>
       <Pagination productsPerPage={productsPerPage} totalProducts={state.filter.length} paginate={setCurrentPage}/>
    </div>
