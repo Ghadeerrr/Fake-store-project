@@ -1,6 +1,7 @@
 // import the required components 
 import Home from "./components/Home";
-import Login from "./components/Login";
+import Cart from "./components/Cart";
+import Login from "./components/LogIn";
 import SignUp from "./components/SignUp";
 import ProductDetails from "./components/ProductDetails";
 import WishList from "./components/WishList";
@@ -18,8 +19,7 @@ function App() {
           <Route path="/ProductDetails/:id" element={<ProductDetails />} />
           <Route path="/WishList" element={<WishList />} />
           <Route path="/Login" element={<Login />} />
-          <Route path="/SignUp" element={<SignUp />} />
- 
+          <Route path="/SignUp" element={<SignUp />} />  
     </Routes>
     </div>    
    </BrowserRouter>
