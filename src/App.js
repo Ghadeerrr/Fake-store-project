@@ -1,16 +1,28 @@
-
-
+// import the required components 
+import Home from "./components/Home";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
+import ProductDetails from "./components/ProductDetails";
+import WishList from "./components/WishList";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 
 function App() {
  
   return(  
-   <div>
-    
+    <BrowserRouter>
+    <div>
+    <Routes>
+          <Route path="/" element={<Home />} />          
+          <Route path="/Cart" element={<Cart />} />
+          <Route path="/ProductDetails/:id" element={<ProductDetails />} />
+          <Route path="/WishList" element={<WishList />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/SignUp" element={<SignUp />} />
  
-   </div>
-    
-  
+    </Routes>
+    </div>    
+   </BrowserRouter>
   );
  
 }
