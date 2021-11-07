@@ -1,7 +1,5 @@
-import { useEffect } from "react";
-import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { setProducts,setFilter } from "../reducers/products/products";
+import {  useSelector } from "react-redux";
+
 
 import Product from "./Product";
 import "./components.css";
@@ -9,21 +7,8 @@ import "./components.css";
 
 
 
-function Products() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-
-    axios.get('https://fakestoreapi.com/products').then(function (response) {
-      console.log(response.data);
-      const action = setProducts(response.data);
-      dispatch(action);
-      const action2 = setFilter(response.data);
-      dispatch(action2);
-    }).catch(function (error) {
-      console.error(error);
-    });
-  },[]);
+function Products({currentProduct}) {
+  
 
   const state = useSelector((state) => {
     return {
@@ -39,7 +24,7 @@ function Products() {
 
           
 
-            {state.filter.map((ele,index)=><Product index={index}/>)}
+            {currentProduct.map((ele,index)=><Product index={index} ele={ele}/>)}
 
             </div>
    
