@@ -3,6 +3,9 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../reducers/products/products";
 
+import Product from "./Product";
+import "./components.css";
+
 
 
 
@@ -22,14 +25,22 @@ function Products() {
 
   const state = useSelector((state) => {
     return {
+
       products: state.products.Allproducts
+
+      products: state.products.products
+
     };
   });
 
 
     return( 
       <div id="grid">
+
             {/* {state.Allproducts.map((ele,index)=><Video ele={ele} index={index}/>)} */}
+
+            {state.products.map((ele,index)=><Product index={index}/>)}
+
             </div>
    
     );

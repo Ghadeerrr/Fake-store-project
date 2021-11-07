@@ -1,3 +1,4 @@
+
 import axios from "axios";
 
 
@@ -30,10 +31,12 @@ function setFilter() {
 
   }
 
+
 function Categories() {
  
     return(  
      <div>
+
       <nav>
       <div >
           <button  onClick={()=>setFilter()}>All</button>
@@ -46,6 +49,17 @@ function Categories() {
      </div>
           
     );  
+  }
+  
+
+
+      
+   
+     </div>
+      
+    
+    );
+   
   }
   
 
