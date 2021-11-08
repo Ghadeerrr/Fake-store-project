@@ -9,7 +9,6 @@ function AdvertisingSlides() {
             className="d-block w-100 "
             src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/pastel-sale-email-header-design-template-2bc431832ab65e24c27d1ed7e7283299_screen.jpg?ts=1561542096"
             height="500"
-            alt="First slide"
           />
           <Carousel.Caption></Carousel.Caption>
         </Carousel.Item>
@@ -18,7 +17,6 @@ function AdvertisingSlides() {
             className="d-block w-100"
             src="https://i.pinimg.com/564x/5a/65/61/5a6561119db533beb718347ff9c8b81d.jpg"
             height="500"
-            alt="Second slide"
           />
 
           <Carousel.Caption></Carousel.Caption>
@@ -28,7 +26,6 @@ function AdvertisingSlides() {
             className="d-block w-100"
             src="https://i.pinimg.com/564x/38/c6/1a/38c61a7448dfb816003f743f0a8d6e83.jpg"
             height="500"
-            alt="Third slide"
           />
 
           <Carousel.Caption></Carousel.Caption>
