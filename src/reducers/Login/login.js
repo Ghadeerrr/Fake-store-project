@@ -18,7 +18,7 @@ const loginDetails = (state = initialState, { type, payload }) => {
 
 export default loginDetails;
 
-export const setloginDetails = (loginDetails) => {
+export const setLoginDetails = (loginDetails) => {
   console.log(loginDetails);
   return {
     type: "SET_LOGIN",
