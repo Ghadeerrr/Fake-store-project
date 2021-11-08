@@ -25,7 +25,7 @@ function Categories({ setCurrentPage }) {
     axios
       .get(`https://fakestoreapi.com/products/category/${Category}`)
       .then(function (response) {
-        console.log(response.data);
+        // console.log(response.data);
         const action2 = setFilter(response.data);
         dispatch(action2);
       })

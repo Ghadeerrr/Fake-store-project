@@ -1,7 +1,7 @@
 import { Button,Card } from 'react-bootstrap';
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { setWishList } from "../reducers/wishList/wishList"
+import { setWishList } from "../reducers/wishList/wishList";
 import { useDispatch } from "react-redux";
 
 function Product({ele,index}) {
@@ -9,19 +9,30 @@ function Product({ele,index}) {
   const dispatch = useDispatch();
   const state = useSelector((state) => {
     return {
-      filter: state.products.filter
+      wishListUsers: state.wishList.wishListUsers,
+      id: state.loginDetails.id,
     };
   });
-    console.log(ele);
 
-    
-  
     const addWishList = (ele)=>{
-     
-      // setCurrentPage(1);
-      const action = setWishList(ele);
-      dispatch(action);
+      console.log(state.id);
       
+      if(state.id == 0){
+        console.log("you have to log in to add to the wishlist");
+        
+        // `<alert`
+      }
+      else{
+        let arr = state.wishListUsers;
+        for (let i = 0; i < arr.length; i++) {
+         if(arr[i].id == state.id){
+           arr[i].wishList.push(ele);
+           const action = setWishList(arr);
+           dispatch(action);
+           break;
+         }
+        }
+      }  
     } 
   
     return(  
