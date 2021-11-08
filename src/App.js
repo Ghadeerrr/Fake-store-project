@@ -11,7 +11,9 @@ import Navbar from "./components/Navbar";
 import AdvertisingSlides from "./components/AdvertisingSlides";
 
 function App() {
+
   return (
+
     <BrowserRouter>
       <div>
         <Navbar />

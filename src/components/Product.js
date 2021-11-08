@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 
 
-function Product({index}) {
+function Product({ele,index}) {
  
   const state = useSelector((state) => {
     return {
@@ -14,9 +14,9 @@ function Product({index}) {
     return(  
      <div>
       <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src={state.filter[index].image} />
+  <Card.Img variant="top" src={ele.image} />
   <Card.Body>
-    <Card.Title>{state.filter[index].title}</Card.Title>
+    <Card.Title>{ele.title}</Card.Title>
     <Button variant="primary">Go somewhere</Button>
   </Card.Body>
 </Card>
