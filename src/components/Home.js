@@ -5,6 +5,8 @@ import Pagination from "./Pagination";
 import Categories from "./Categories";
 import { setProducts,setFilter } from "../reducers/products/products";
 import { useDispatch,useSelector } from "react-redux";
+import Navbar from "./Navbar";
+import AdvertisingSlides from "./AdvertisingSlides";
 
 function Home() {
   const [currentPage,setCurrentPage]=useState(1);
@@ -41,6 +43,8 @@ console.log(currentProduct);
  
     return(  
      <div>
+       <Navbar />
+       <AdvertisingSlides />
        <Categories setCurrentPage={setCurrentPage}/>
       <Products currentProduct={currentProduct}/>
       <Pagination productsPerPage={productsPerPage} totalProducts={state.filter.length} paginate={setCurrentPage}/>
