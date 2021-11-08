@@ -1,14 +1,13 @@
 const initialState = {
-  wishList: [],
+  wishListUsers: [{id:1 ,wishList:[]},{id:2 ,wishList:[]},{id:3 ,wishList:[]}],
 };
 
 const wishList = (state = initialState, { type, payload }) => {
   switch (type) {
     case "SET_WISHLIST":
       console.log(state.wishList);
-
       return {
-        wishList: payload,
+        wishListUsers: payload,
       };
 
     default:

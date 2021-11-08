@@ -1,6 +1,7 @@
 const initialState = {
   loginDetails: [],
-  userName: ''
+  userName: '',
+  id:0
 };
 
 const loginDetails = (state = initialState, { type, payload }) => {
@@ -10,12 +11,21 @@ const loginDetails = (state = initialState, { type, payload }) => {
 
       return {
         loginDetails: payload,
-        userName: state.userName
+        userName: state.userName,
+        id:state.id
       };
       case "SET_USERNAME":
       return {
         loginDetails: state.loginDetails,
-        userName: payload
+        userName: payload,
+        id:state.id
+      };
+      case "SET_ID":
+      console.log(state.id);
+      return {
+        loginDetails: state.loginDetails,
+        userName: state.userName,
+        id:payload
       };
 
     default:
@@ -38,5 +48,14 @@ export const setUserName = (userName) => {
   return {
     type: "SET_USERNAME",
     payload: userName,
+  };
+};
+
+export const setId = (id) => {
+  console.log(id);
+  
+  return {
+    type: "SET_ID",
+    payload: id,
   };
 };
