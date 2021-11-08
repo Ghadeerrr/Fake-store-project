@@ -1,9 +1,9 @@
 
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setFilter } from "../reducers/products/products";
+import { setProducts,setFilter } from "../reducers/products/products";
 
-function Categories({setCurrentPage}) {
+function Categories() {
   const dispatch = useDispatch();
 
   const state = useSelector((state) => {
@@ -15,15 +15,14 @@ function Categories({setCurrentPage}) {
   });
 
   function AllProducts() {
-    setCurrentPage(1);
     const action = setFilter(state.products);
     dispatch(action);
-    
+   
   }
  
   function filterCategory(Category) {
 
-    setCurrentPage(1);
+    
       axios.get(`https://fakestoreapi.com/products/category/${Category}`)
       .then(function (response) {
         console.log(response.data);
@@ -34,7 +33,7 @@ function Categories({setCurrentPage}) {
         console.error(error);
       });
   
-      
+
   }
     return(  
      <div>

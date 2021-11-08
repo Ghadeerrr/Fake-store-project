@@ -1,9 +1,24 @@
-function App() {
+ import { useSelector } from "react-redux";
+
+
+function WishList() {
  
+  // const state = useSelector((state) => {
+  //   return {
+  //     products: state.products.wishList,
+   
+
+  //   };
+  // });
+
     return(  
      <div>
       
-   
+      {/* {products.map() =>{
+
+      }} */}
+     
+     
      </div>
       
     
@@ -11,4 +26,4 @@ function App() {
    
   }
   
-  export default App;
+  export default WishList;
