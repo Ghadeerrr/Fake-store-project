@@ -15,10 +15,10 @@ function Categories({ setCurrentPage }) {
   });
 
   function AllProducts() {
-    setCurrentPage(1);
     const action = setFilter(state.products);
     dispatch(action);
   }
+
 
   function filterCategory(Category) {
     setCurrentPage(1);
@@ -32,6 +32,7 @@ function Categories({ setCurrentPage }) {
       .catch(function (error) {
         console.error(error);
       });
+
   }
   return (
     <div className="Categories">

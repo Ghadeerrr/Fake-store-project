@@ -1,4 +1,39 @@
-import React from "react";
+// import React from "react";
+// <<<<<<< HEAD
+// import { NavLink } from "react-router-dom";
+// import { useSelector } from "react-redux";
+// import { BsFillBagFill } from "react-icons/bs";
+
+
+// function Navbar() {
+ 
+//   // const {totalQuantities} = useSelector(state => state.CartReducer)
+
+//     return(  
+//       <div className="nav">
+//             <div className="container">
+//                 <div className="nav__container">
+//                     <div className="nav__left">
+//                         <NavLink to="/"><img src="https://th.bing.com/th/id/OIP.sp_QpmljUkDqW_bmdQdYiQHaHa?pid=ImgDet&rs=1" alt="logo"/></NavLink>
+//                     </div>
+//                     <div className="nav__right">
+//                         <NavLink to="/cart">
+//                             <div className="basket">
+//                              <BsFillBagFill className="cart-icon" />
+//                                {/* <span>{totalQuantities}</span> */}
+//                             </div>
+//                         </NavLink>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+    
+//     );
+   
+//   }
+  
+//   export default Navbar;
+// =======
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import FavoriteIcon from "@material-ui/icons/Favorite";
@@ -49,3 +84,4 @@ function Navbar() {
 }
 
 export default Navbar;
+// >>>>>>> cd9d9399f412b4d0410c54136aa088922318a75e
