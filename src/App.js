@@ -7,8 +7,7 @@ import ProductDetails from "./components/ProductDetails";
 import WishList from "./components/WishList";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "./components/Navbar";
-import AdvertisingSlides from "./components/AdvertisingSlides";
+
 
 function App() {
 
@@ -16,15 +15,13 @@ function App() {
 
     <BrowserRouter>
       <div>
-        <Navbar />
-        <AdvertisingSlides />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Cart" element={<Cart />} />
-          <Route path="/ProductDetails/:id" element={<ProductDetails />} />
-          <Route path="/WishList" element={<WishList />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/productdetails/:id" element={<ProductDetails />} />
+          <Route path="/wishList" element={<WishList />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signUp" element={<SignUp />} />
         </Routes>
       </div>
     </BrowserRouter>
