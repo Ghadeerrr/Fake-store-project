@@ -1,5 +1,6 @@
 const initialState = {
   loginDetails: [],
+  userName: ''
 };
 
 const loginDetails = (state = initialState, { type, payload }) => {
@@ -9,6 +10,12 @@ const loginDetails = (state = initialState, { type, payload }) => {
 
       return {
         loginDetails: payload,
+        userName: state.userName
+      };
+      case "SET_USERNAME":
+      return {
+        loginDetails: state.loginDetails,
+        userName: payload
       };
 
     default:
@@ -19,9 +26,17 @@ const loginDetails = (state = initialState, { type, payload }) => {
 export default loginDetails;
 
 export const setLoginDetails = (loginDetails) => {
-  console.log(loginDetails);
   return {
     type: "SET_LOGIN",
     payload: loginDetails,
+  };
+};
+
+export const setUserName = (userName) => {
+  console.log(userName);
+  
+  return {
+    type: "SET_USERNAME",
+    payload: userName,
   };
 };
