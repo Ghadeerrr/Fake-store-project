@@ -79,14 +79,8 @@ function LogIn() {
       <div >
       <span>Forgot <a href="#">password?</a></span>
       </div>
+    </div>
+  );
+}
 
-    
-   
-     </div>
-      
-    
-    );
-   
-  }
-  
-  export default LogIn;
+export default LogIn;
