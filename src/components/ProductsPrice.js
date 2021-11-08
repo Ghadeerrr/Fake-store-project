@@ -1,6 +1,7 @@
 // import { setFilter } from "../reducers/products/products";
 // import { useDispatch, useSelector } from "react-redux";
 // import { useState } from "react";
+//----
 function ProductPrice() {
   //   const dispatch = useDispatch();
   //   const [v1, setv1] = useState(false);
