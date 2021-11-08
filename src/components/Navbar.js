@@ -22,7 +22,7 @@ function Navbar() {
       </div>
 
       <div className="header-nav">
-        <Link to="/Cart" className="header-link">
+        <Link to="/cart" className="header-link">
           <div className="header-option">
             <ShoppingCartOutlinedIcon />
             <span className="header-option2 basket-count">0</span>
@@ -31,14 +31,14 @@ function Navbar() {
       </div>
       <div className="header-nav">
         <p>WishList</p>
-        <Link to="/WishList" className="header-link">
+        <Link to="/wishList" className="header-link">
           <div className="header-option">
             <FavoriteIcon />
           </div>
         </Link>
       </div>
       <div className="button">
-        <Button variant="outline-warning">Log in</Button>{" "}
+      <Link to="/login"><Button variant="outline-warning">Log in</Button></Link>
       </div>
     </nav>
   );
