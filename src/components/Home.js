@@ -3,7 +3,6 @@ import axios from "axios";
 import Products from "./Products";
 import Pagination from "./Pagination";
 import Categories from "./Categories";
-import Navbar from "./Navbar"
 import { setProducts,setFilter } from "../reducers/products/products";
 import { useDispatch,useSelector } from "react-redux";
 
@@ -42,7 +41,6 @@ console.log(currentProduct);
  
     return(  
      <div>
-       <Navbar/>
        <Categories setCurrentPage={setCurrentPage}/>
       <Products currentProduct={currentProduct}/>
       <Pagination productsPerPage={productsPerPage} totalProducts={state.filter.length} paginate={setCurrentPage}/>

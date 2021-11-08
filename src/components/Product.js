@@ -15,20 +15,15 @@ function Product({ele,index}) {
     return(  
      <div>
       <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src={ele.image} />
-  <Card.Body>
-    <Card.Title>{ele.title}</Card.Title>
-      {/* <Button variant="primary">Go somewhere</Button> */}
-        {/* <ProductDetails to={`/ProductDetails/${index}`} class="btn btn-outline-dark">
-                          Details
-        </ProductDetails> */}
-
-     {/* <Button variant="primary"  to={`/ProductDetails/${index}`}>Go somewhere</Button> */}
-     <NavLink to={`/ProductDetails/${index}`} class="btn btn-outline-dark">
-        Details
-      </NavLink>
-    </Card.Body>
-  </Card>
+      <Card.Img variant="top" src={ele.image} />
+        <Card.Body>
+          <Card.Title>{ele.title}</Card.Title>
+          <Card.Title>{ele.price + "$"}</Card.Title>
+          <NavLink to={`/ProductDetails/${index}`} class="btn btn-outline-dark">
+              Details
+            </NavLink>
+          </Card.Body>
+    </Card>
    
      </div>
       
