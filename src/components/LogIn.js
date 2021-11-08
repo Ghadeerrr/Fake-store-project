@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect,useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setLoginDetails,setUserName } from "../reducers/Login/login";
+import { setLoginDetails,setUserName,setId } from "../reducers/Login/login";
 import './components.css';
 function LogIn() {
   const [userinfo,setUserinfo]=useState('');
@@ -42,7 +42,11 @@ function LogIn() {
       if(foundUser && foundPassword){
         console.log("user found");
         state.loginDetails.map((ele)=>{if(ele.email == userinfo){
-          setUserName(ele.username);
+          const action1 = setUserName(ele.username);
+          dispatch(action1);
+          const action2 = setId(ele.id);
+          dispatch(action2);
+          console.log("id is"+ele.id);
           navigate("/");
         }})
       }
@@ -55,7 +59,12 @@ function LogIn() {
       const foundPassword = state.loginDetails.find(element => element.password == password);
       if(foundUser && foundPassword){
         console.log("user found");
-        setUserName(userinfo);
+        const action1 = setUserName(userinfo);
+          dispatch(action1);
+        state.loginDetails.map((ele)=>{if(ele.username == userinfo){
+          const action2 = setId(ele.id);
+          dispatch(action2);
+        }})
         navigate("/");
       }
       else{
