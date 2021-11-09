@@ -49,7 +49,7 @@ function Home() {
       <Navbar />
       <AdvertisingSlides />
       <Categories setCurrentPage={setCurrentPage} />
-      <ProductPrice />
+
       <Products currentProduct={currentProduct} />
       <Pagination
         productsPerPage={productsPerPage}
