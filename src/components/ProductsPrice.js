@@ -1,5 +1,6 @@
 import { setFilter } from "../reducers/products/products";
 import { useDispatch, useSelector } from "react-redux";
+import "./Categories.css";
 import { useState } from "react";
 
 function ProductPrice() {
@@ -76,32 +77,33 @@ function ProductPrice() {
   };
 
   return (
-    <div className="ProductPtice">
+    <div className="filter-price">
+      <h5>price</h5>
       <nav>
         <form onClick={(e) => HandelCheack(e)}>
           <label>
-            less than $59
-            <input value="1" type="checkbox" name="checkbox" />
+          <input value="1" type="checkbox" name="checkbox" />
+            <span>less than 59$</span>
           </label>
           <br />
           <label>
-            59$ to 199$
-            <input value="2" type="checkbox" name="checkbox" />
+          <input value="2" type="checkbox" name="checkbox" />
+            <span>59$ to 199$</span>
           </label>
           <br />
           <label>
-            200$ to 399$
-            <input value="3" type="checkbox" name="checkbox" />
+          <input value="3" type="checkbox" name="checkbox" />
+            <span>200$ to 399$</span>
           </label>
           <br />
           <label>
-            400$ to 699$
-            <input value="4" type="checkbox" name="checkbox" />
+          <input value="4" type="checkbox" name="checkbox" />
+            <span>400$ to 699$</span>
           </label>
           <br />
           <label>
-            More than 699$
-            <input value="5" type="checkbox" name="checkbox" />
+          <input value="5" type="checkbox" name="checkbox" />
+            <span>More than 699$</span>
           </label>
         </form>
       </nav>
