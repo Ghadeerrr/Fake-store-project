@@ -1,26 +1,26 @@
 const initialState = {
-  cart: [],
+  cartUsers: [{id:1 ,cart:[]},{id:2 ,cart:[]},{id:3 ,cart:[]}],
 };
 
-const cart = (state = initialState, { type, payload }) => {
+const Cart = (state = initialState, { type, payload }) => {
   switch (type) {
     case "ADD_CART":
-      console.log(state.cart);
       return {
-        cart: payload,
+        cartUsers: payload,
+
       };
 
     default:
       return state;
   }
 };
+export default Cart;
 
-export default cart;
-
-export const cart = (cart) => {
-  console.log(cart);
+export const setCartUsers = (cartUsers) => {
+  console.log(cartUsers);
   return {
     type: "ADD_CART",
-    payload: cart,
+    payload: cartUsers,
+
   };
 };

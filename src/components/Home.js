@@ -49,7 +49,6 @@ function Home() {
       <Navbar />
       <AdvertisingSlides />
       <Categories setCurrentPage={setCurrentPage} />
-
       <Products currentProduct={currentProduct} />
       <Pagination
         productsPerPage={productsPerPage}
