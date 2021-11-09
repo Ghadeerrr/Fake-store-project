@@ -14,7 +14,12 @@ const state = useSelector((state) => {
 console.log(state.cartUsers[state.id-1].cart);
   return(
     <div>
-    
+    <div id="grid">
+      
+      {array.map((ele,index)=><Product index={index} ele={ele}/>)}
+     
+     
+     </div>
     </div>
   );
 

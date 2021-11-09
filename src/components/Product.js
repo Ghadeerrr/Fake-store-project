@@ -1,4 +1,4 @@
-import { Button,Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { setWishList } from "../reducers/wishList/wishList";
@@ -26,14 +26,32 @@ function Product({ele,index}) {
         let arr = state.wishListUsers;
         for (let i = 0; i < arr.length; i++) {
          if(arr[i].id == state.id){
-           arr[i].wishList.push(ele);
-           const action = setWishList(arr);
-           dispatch(action);
-           break;
-         }
+           if(arr[i].wishList.length == 0){
+            arr[i].wishList.push(ele);
+            const action = setWishList(arr);
+            dispatch(action);
+            break;
+           }
+           else{
+             let eleExist=false;
+             for (let j = 0; j < arr[i].wishList.length; j++) {
+              if(arr[i].wishList[j].id == ele.id){
+                eleExist=true;
+              } 
+             }
+             if(!eleExist){
+              arr[i].wishList.push(ele);
+              const action = setWishList(arr);
+              dispatch(action);
+              break;
+             }
+             }
+           }
+      
+          }
         }
       }  
-    } 
+    
   
     return(  
      <div>
