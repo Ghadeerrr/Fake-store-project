@@ -1,53 +1,46 @@
-
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { setFilter } from "../reducers/products/products";
-
 
 import "./Navbar.css";
 
 function Navbar() {
-
-  const [keyword, setkeyword] = useState('');
+  const [keyword, setkeyword] = useState("");
   const dispatch = useDispatch();
 
   const state = useSelector((state) => {
     return {
       userName: state.loginDetails.userName,
       products: state.products.products,
-      filter: state.products.filter
+      filter: state.products.filter,
     };
   });
-  
-  const InputName = (e) =>{
+
+  const InputName = (e) => {
     search(e.target.value.toLocaleLowerCase());
-  }
+  };
 
-  const search = (keyword) =>{ 
-   
-    let newArray = []
-    let Key = "title"  
+  const search = (keyword) => {
+    let newArray = [];
+    let Key = "title";
 
-    state.products.map((ele, index) =>{
-
+    state.products.map((ele, index) => {
       let str = ele.title.toLocaleLowerCase();
 
-      if(str.match(keyword)){
-        newArray.push(ele)   
+      if (str.match(keyword)) {
+        newArray.push(ele);
       }
-    })
+    });
 
-  const action = setFilter(newArray);
-  dispatch(action);
+    const action = setFilter(newArray);
+    dispatch(action);
+  };
 
-  }
-
- 
   return (
     <nav className="header">
       <Link to="/">
@@ -78,11 +71,12 @@ function Navbar() {
         </Link>
       </div>
       <div className="button">
-      <Link to="/login"><Button variant="outline-warning">Log in</Button></Link>
+        <Link to="/login">
+          <Button variant="outline-warning">Log in</Button>
+        </Link>
       </div>
     </nav>
   );
 }
 
 export default Navbar;
-
