@@ -1,24 +1,14 @@
-import { useParams, useHistory } from "react-router";
+import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import { Col, Row, Container, Card } from "react-bootstrap";
-import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import StarRateIcon from "@material-ui/icons/StarRate";
 import NavbarAll from "./NavbarAll";
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 
 function ProductDetails() {
   const { id } = useParams();
   const { filter } = useSelector((state) => state.products);
 
-  //   <div id="grid">
-  //   <Card style={{ width: '18rem' }}>
-  //       <Card.Img variant="top" src={filter[id].image} />
-  //       <Card.Body>
-  //         <Card.Title>{filter[id].title}</Card.Title>
-  //         <Card.Title>{filter[id].category}</Card.Title>
-  //         <Card.Text>{filter[id].description}</Card.Text>
-  //         <Card.Title>{filter[id].price + "$"}</Card.Title>
-  //       </Card.Body>
-  //   </Card>
-  // </div>
   return (
     <div>
       <NavbarAll />
@@ -35,31 +25,24 @@ function ProductDetails() {
                   {filter[id].category}
                 </h4>
 
-                <h1 className=" text-black-20">{filter[id].title}</h1>
+                <h1 className=" text-black-50">{filter[id].title}</h1>
               </div>
 
-              <p className="lead">
-                Rating {filter[id].rating && filter[id].rating.rate}
-                <i class="bi bi-star-fill"></i>
+              <p className="Rating">
+                <b> Rating :</b> {filter[id].rating.rate}
+                <StarRateIcon />( {filter[id].rating.count})
               </p>
+
               <div className="display-6 fw-bold my-4">
                 {filter[id].price + "$"}
               </div>
-              <p className="lead">{filter[id].description}</p>
+              <p className="description">{filter[id].description}</p>
 
               <button className="btn btn-outline-dark">
                 Add to cart <AddShoppingCartIcon />
               </button>
             </Col>
           </Row>
-
-          {/* <Card.Body>
-                <Card.Title>{filter[id].title}</Card.Title>
-                <Card.Title>{filter[id].category}</Card.Title>
-                <Card.Text>{filter[id].description}</Card.Text>
-                <Card.Title>{filter[id].price + "$"}</Card.Title>
-              </Card.Body>
-          </Card> */}
         </Container>
       </Card.Body>
     </div>
