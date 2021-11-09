@@ -36,39 +36,40 @@ function Categories({ setCurrentPage }) {
 
   }
   return (
-    <div className="Categories">
+    <div className="filter-Categories">
+      <h5>Categories</h5>
       <nav>
-        <div className="Buttons d-flex justify-content-center mb-5 pb-5 ">
-          <Button variant="outline-dark" onClick={() => AllProducts()}>
+        <div className="Buttons">
+
+          <Button variant="outline-dark d-block p-2 m-2" onClick={() => AllProducts()}>
             All
           </Button>
           <Button
-            variant="outline-dark"
+            variant="outline-dark d-block p-2 m-2"
             onClick={() => filterCategory("men's clothing")}
           >
             Men's Clothing
           </Button>
           <Button
-            variant="outline-dark"
+            variant="outline-dark d-block p-2 m-2"
             onClick={() => filterCategory("women's clothing")}
           >
             Women's Clothing
           </Button>
           <Button
-            variant="outline-dark"
+            variant="outline-dark d-block p-2 m-2"
             onClick={() => filterCategory("jewelery")}
           >
             Jewelery
           </Button>
           <Button
-            variant="outline-dark"
+            variant="outline-dark d-block p-2 m-2"
             onClick={() => filterCategory("electronics")}
           >
             Electronic
           </Button>
         </div>
       </nav>
-
       <StarRatingDemo />
     </div>
   );

@@ -40,10 +40,10 @@ const state = useSelector((state) => {
 
 
     return (
-      <div>
+      <div className="filter-star">
 
-        <h4>Star Rating Demo</h4>
-  
+        <h5>Star Rating </h5>
+
        <StarRating 
          count={5}
          size={30}

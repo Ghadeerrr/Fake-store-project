@@ -1,7 +1,7 @@
 
      #grid{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 1rem;
         margin: 5%;
        }
@@ -22,3 +22,42 @@
        .active {
          color: red;
        }
+       .pagination{
+         margin-top: 80px;
+         margin-bottom: 80px;
+         margin-left: 650px;
+         cursor: pointer
+         
+       }
+       .Filtration{
+         /* border: 2px solid black; */
+         overflow: hidden;
+         float: left;
+         margin: 10px;
+         margin-top: 25px;
+       }
+       .filter-Categories{
+         margin: 20px;
+         padding: 20px;
+
+       }
+       .filter-price{
+
+        margin: 20px;
+        padding: 20px;
+       }
+       .filter-star{
+
+        margin: 20px;
+        padding: 20px;
+       }
+       .outline-dark{
+         margin: 10px;
+       }
+       label{
+         display: block;
+         padding: 3px;
+       
+       }
+   
+ 
