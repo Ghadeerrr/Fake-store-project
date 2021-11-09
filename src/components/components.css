@@ -5,3 +5,20 @@
         gap: 1rem;
         margin: 5%;
        }
+       .star {
+         display: inline-block;  
+         cursor: pointer;
+       }
+       
+       .inactive, .active {
+         background: transparent;
+         user-select: none;
+       }
+       
+       .inactive {
+         color: #f1f1e8;
+       }
+       
+       .active {
+         color: red;
+       }

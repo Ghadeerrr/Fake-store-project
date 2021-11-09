@@ -1,39 +1,4 @@
-// import React from "react";
-// <<<<<<< HEAD
-// import { NavLink } from "react-router-dom";
-// import { useSelector } from "react-redux";
-// import { BsFillBagFill } from "react-icons/bs";
 
-
-// function Navbar() {
- 
-//   // const {totalQuantities} = useSelector(state => state.CartReducer)
-
-//     return(  
-//       <div className="nav">
-//             <div className="container">
-//                 <div className="nav__container">
-//                     <div className="nav__left">
-//                         <NavLink to="/"><img src="https://th.bing.com/th/id/OIP.sp_QpmljUkDqW_bmdQdYiQHaHa?pid=ImgDet&rs=1" alt="logo"/></NavLink>
-//                     </div>
-//                     <div className="nav__right">
-//                         <NavLink to="/cart">
-//                             <div className="basket">
-//                              <BsFillBagFill className="cart-icon" />
-//                                {/* <span>{totalQuantities}</span> */}
-//                             </div>
-//                         </NavLink>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-    
-//     );
-   
-//   }
-  
-//   export default Navbar;
-// =======
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import FavoriteIcon from "@material-ui/icons/Favorite";
@@ -42,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import React, { useState } from 'react';
 import { setFilter } from "../reducers/products/products";
+
 
 import "./Navbar.css";
 
@@ -62,11 +28,8 @@ function Navbar() {
     search(e.target.value.toLocaleLowerCase());
   }
 
-
-
   const search = (keyword) =>{ 
    
-
     let newArray = []
     let Key = "title"  
 
@@ -78,7 +41,6 @@ function Navbar() {
         newArray.push(ele)   
       }
     })
-
 
   const action = setFilter(newArray);
   dispatch(action);

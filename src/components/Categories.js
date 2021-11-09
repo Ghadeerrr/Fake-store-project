@@ -2,6 +2,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilter } from "../reducers/products/products";
 import { Button } from "react-bootstrap";
+import StarRatingDemo from "./StarRatingDemo"
 import "./Categories.css";
 
 function Categories({ setCurrentPage }) {
@@ -67,6 +68,8 @@ function Categories({ setCurrentPage }) {
           </Button>
         </div>
       </nav>
+
+      <StarRatingDemo />
     </div>
   );
 }
