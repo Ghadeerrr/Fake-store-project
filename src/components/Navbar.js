@@ -38,15 +38,54 @@ import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import { Button } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { setFilter } from "../reducers/products/products";
+
 import "./Navbar.css";
+
 function Navbar() {
+
+  const [keyword, setkeyword] = useState('');
+  const dispatch = useDispatch();
+
   const state = useSelector((state) => {
     return {
       userName: state.loginDetails.userName,
+      products: state.products.products,
+      filter: state.products.filter
     };
   });
+  
+  const InputName = (e) =>{
+    search(e.target.value.toLocaleLowerCase());
+  }
+
+
+
+  const search = (keyword) =>{ 
+   
+
+    let newArray = []
+    let Key = "title"  
+
+    state.products.map((ele, index) =>{
+
+      let str = ele.title.toLocaleLowerCase();
+
+      if(str.match(keyword)){
+        newArray.push(ele)   
+      }
+    })
+
+
+  const action = setFilter(newArray);
+  dispatch(action);
+
+  }
+
+ 
   return (
     <nav className="header">
       <Link to="/">
@@ -57,7 +96,7 @@ function Navbar() {
         />
       </Link>
       <div className="search">
-        <input type="text" className="searchInput" />
+        <input type="text" onChange={InputName} className="searchInput" />
         <SearchIcon className="searchIcon" />
       </div>
       <p>{state.userName}</p>
@@ -84,4 +123,4 @@ function Navbar() {
 }
 
 export default Navbar;
-// >>>>>>> cd9d9399f412b4d0410c54136aa088922318a75e
+
