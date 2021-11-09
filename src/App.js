@@ -8,11 +8,8 @@ import WishList from "./components/WishList";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-
 function App() {
-
   return (
-
     <BrowserRouter>
       <div>
         <Routes>
@@ -21,6 +18,7 @@ function App() {
           <Route path="/productdetails/:id" element={<ProductDetails />} />
           <Route path="/wishList" element={<WishList />} />
           <Route path="/login" element={<Login />} />
+
           <Route path="/signUp" element={<SignUp />} />
         </Routes>
       </div>
