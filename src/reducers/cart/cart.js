@@ -7,13 +7,13 @@ const Cart = (state = initialState, { type, payload }) => {
     case "ADD_CART":
       return {
         cartUsers: payload,
+
       };
 
     default:
       return state;
   }
 };
-
 export default Cart;
 
 export const setCartUsers = (cartUsers) => {
@@ -21,5 +21,6 @@ export const setCartUsers = (cartUsers) => {
   return {
     type: "ADD_CART",
     payload: cartUsers,
+
   };
 };

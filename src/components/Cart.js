@@ -17,7 +17,7 @@ console.log(state.cartUsers[state.id-1].cart);
     
     </div>
   );
-  
+
 }
 
 export default Cart;
