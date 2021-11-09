@@ -26,7 +26,7 @@ const state = useSelector((state) => {
   const searchvalue = (value) =>{ 
    
     let newArray = []
-    state.products.map((ele, index) =>{
+    state.filter.map((ele, index) =>{
 
       if(value <= ele.rating.rate){ // ele.rating.rate
         newArray.push(ele)   

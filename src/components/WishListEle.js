@@ -16,17 +16,14 @@ function WishListEle({ele,index}){
         return e.id != ele.id;
     }
     const deleteWishList = () =>{
-        console.log("ASDS");
         
         let arr = state.wishListUsers.slice();
-        // console.log(arr[state.id-1].wishList);
         
         let newArr = arr[state.id-1].wishList.filter((e)=>deletEle(e))
 
         arr[state.id-1].wishList =newArr.slice();
         const action = setWishList(arr);
             dispatch(action);
-            // console.log(state.wishListUsers);
             
     }
     return(
