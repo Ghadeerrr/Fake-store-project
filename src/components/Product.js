@@ -1,8 +1,7 @@
 import { Card } from 'react-bootstrap';
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { setWishList } from "../reducers/wishList/wishList";
-import { useDispatch } from "react-redux";
 
 function Product({ele,index}) {
  
