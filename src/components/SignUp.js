@@ -1,6 +1,7 @@
 import NavbarAll from "./NavbarAll";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoginDetails } from "../reducers/Login/login";
+import { Link } from "react-router-dom";
 function SignUp() {
   const state = useSelector((state) => {
     return {
@@ -30,7 +31,10 @@ function SignUp() {
   const changePassword = (e) => {
     password = e.target.value;
   };
-  const Cheack = () => {
+  const Cheack = (e) => {
+    e.preventDefault();
+    console.log("check");
+    
     let x = 0;
     let y = 0;
     for (let i = 0; i < state.loginDetails.length; i++) {
@@ -50,14 +54,16 @@ function SignUp() {
         email: email,
         username: userName,
         password: password,
-        name: { firstname: firstName, lastname: lastName },
+        name: { firstname: firstName, lastname: lastName }
       };
       let arr = state.loginDetails.slice();
       console.log(arr);
       arr.push(newUser);
       console.log(arr);
       const action = setLoginDetails(arr);
-      dispatch(action);
+      dispatch(action);  
+      console.log(state.loginDetails);
+
     }
   };
 
@@ -112,14 +118,14 @@ function SignUp() {
         />
       </div>
       <button
-        onClick={Cheack}
-        type="submit"
+      type="submit"
+        onClick={(e) =>Cheack(e)}
         className="btn btn-primary btn-block"
       >
         Sign Up
       </button>
       <p className="forgot-password text-right">
-        Already registered ? <a href="/login">Log in</a>
+        Already registered ? <Link to="/login"><p>Log in</p></Link>
       </p>
     </form>
   );

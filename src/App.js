@@ -14,19 +14,19 @@ import { setLoginDetails } from "./reducers/Login/login";
 import { useEffect } from "react";
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    axios
-      .get("https://fakestoreapi.com/users?limit=3")
-      .then(function (response) {
-        console.log(response.data);
-        const action = setLoginDetails(response.data);
-        dispatch(action);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  }, []);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   axios
+  //     .get("https://fakestoreapi.com/users?limit=3")
+  //     .then(function (response) {
+  //       console.log(response.data);
+  //       const action = setLoginDetails(response.data);
+  //       dispatch(action);
+  //     })
+  //     .catch(function (error) {
+  //       console.error(error);
+  //     });
+  // }, []);
   return (
     <BrowserRouter>
       <div>
