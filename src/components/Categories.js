@@ -37,10 +37,9 @@ function Categories({ setCurrentPage }) {
   }
   return (
     <div className="filter-Categories">
-      <h5>Categories</h5>
+      <h4 className="title-filter">Categories</h4>
       <nav>
         <div className="Buttons">
-
           <Button variant="outline-dark d-block p-2 m-2" onClick={() => AllProducts()}>
             All
           </Button>

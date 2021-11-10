@@ -78,7 +78,7 @@ function ProductPrice() {
 
   return (
     <div className="filter-price">
-      <h5>price</h5>
+      <h4 className="title-filter">price</h4>
       <nav>
         <form onClick={(e) => HandelCheack(e)}>
           <label>

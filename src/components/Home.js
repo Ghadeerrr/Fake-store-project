@@ -9,9 +9,11 @@ import { useDispatch, useSelector } from "react-redux";
 import Navbar from "./Navbar";
 import AdvertisingSlides from "./AdvertisingSlides";
 import ProductPrice from "./ProductsPrice";
-import { Link } from 'react-router-dom'
-import Button from '@material-ui/core/Button';
-import Admain from "./Admin"
+import { Link } from 'react-router-dom';
+// import Button from '@material-ui/core/Button';
+import { Button } from "react-bootstrap";
+import Admain from "./Admin";
+import "./Categories.css";
 
 function Home() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -53,9 +55,11 @@ function Home() {
       <Navbar />
       <AdvertisingSlides />
       {/* <Admain/> */}
-      <Button component={Link} to="/admin">
+      <div className="Button-admin">
+      <Button variant="danger" component={Link} to="/admin">
       Admin page
       </Button>
+      </div>
       <div className="Filtration">
       <Categories setCurrentPage={setCurrentPage} />
       <ProductPrice />
