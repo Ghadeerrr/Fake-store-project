@@ -5,6 +5,7 @@ import Login from "./components/LogIn";
 import SignUp from "./components/SignUp";
 import ProductDetails from "./components/ProductDetails";
 import WishList from "./components/WishList";
+import Admin from "./components/Admin";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";

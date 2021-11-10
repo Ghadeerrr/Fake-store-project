@@ -17,9 +17,7 @@ function Product({ele,index}) {
       console.log(state.id);
       
       if(state.id == 0){
-        console.log("you have to log in to add to the wishlist");
-        
-        // `<alert`
+        alert("You have to log in to add to the wishlist");
       }
       else{
         let arr = state.wishListUsers;
