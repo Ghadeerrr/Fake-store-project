@@ -5,7 +5,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import "./NavbarAll.css";
+import "./Navbar.css";
 
 function NavbarAll() {
   const state = useSelector((state) => {
@@ -17,33 +17,33 @@ function NavbarAll() {
   });
   return (
     <nav className="header">
-      <div className="header-navbar">
+      <div className="navbar-home">
         <Link to="/" className="header-link">
           <div className="header-icon">
-            <HomeIcon />
+            <HomeIcon className="IconHome" />
           </div>
         </Link>
       </div>
 
       <p>{state.userName}</p>
-      <div className="header-navbar">
+      <div className="navbar-cart">
         <Link to="/cart" className="header-link">
           <div className="header-icon">
-            <ShoppingCartOutlinedIcon />
-            <span className="header-option2 basket-count">0</span>
+            <ShoppingCartOutlinedIcon className="Icon" />
+            <span className="basket-count">0</span>
           </div>
         </Link>
       </div>
-      <div className="header-navbar">
+      <div className="navbar-Favorite">
         <Link to="/wishList" className="header-link">
           <div className="header-icon">
-            <FavoriteIcon />
+            <FavoriteIcon className="Icon" />
           </div>
         </Link>
       </div>
-      <div className="button">
+      <div className="navbar-button">
         <Link to="/login">
-          <Button classNamr="Btn" variant="outline-warning">
+          <Button classNamr="Btn" variant="outline-dark">
             Log in
           </Button>
         </Link>
