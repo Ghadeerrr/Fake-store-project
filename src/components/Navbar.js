@@ -52,7 +52,7 @@ function Navbar() {
         <span>O</span>nline <span>S</span>tore
       </h5>
       <div className="search">
-        <input type="text" onChange={InputName} className="searchInput" />
+        <input type="text" placeholder="Search" onChange={InputName} className="searchInput" />
         <SearchIcon className="searchIcon" />
       </div>
       <p>{state.userName}</p>

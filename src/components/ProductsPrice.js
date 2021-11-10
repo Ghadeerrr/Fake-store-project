@@ -82,7 +82,7 @@ function ProductPrice() {
       <nav>
         <form onClick={(e) => HandelCheack(e)}>
           <label>
-          <input value="1" type="checkbox" name="checkbox" />
+          <input value="1" type="checkbox" name="checkbox"  />
             <span>less than 59$</span>
           </label>
           <br />
