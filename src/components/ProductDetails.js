@@ -4,12 +4,13 @@ import StarRateIcon from "@material-ui/icons/StarRate";
 import NavbarAll from "./NavbarAll";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import { useSelector,useDispatch } from "react-redux";
-import { setCartUsers } from "../reducers/cart/cart";
+import { setCartUsers,setCartLength } from "../reducers/cart/cart";
 
 function ProductDetails() {
   const dispatch = useDispatch();
   const state = useSelector((state) => {
     return {
+      cartUsers: state.Cart.cartUsers,
       cartUsers: state.Cart.cartUsers,
       id: state.loginDetails.id
     };
@@ -21,9 +22,7 @@ function ProductDetails() {
   const addToCart =()=>{
     
     if(state.id == 0){
-      console.log("you have to log in to add to the wishlist");
-      
-      // `<alert`
+      alert("You have to log in to add to cart");
     }
     else{
       let arr = state.cartUsers.slice();
@@ -34,6 +33,8 @@ function ProductDetails() {
             console.log(arr);
             const action = setCartUsers(arr);
             dispatch(action);
+            const action2 = setCartLength();
+              dispatch(action2);
             break;
            }
            else{
@@ -48,6 +49,8 @@ function ProductDetails() {
               console.log(arr);
               const action = setCartUsers(arr);
               dispatch(action);
+              const action2 = setCartLength();
+              dispatch(action2);
               break;
              }
              }

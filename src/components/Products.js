@@ -18,8 +18,6 @@ function Products({ currentProduct }) {
       ) : (
         currentProduct.map((ele, index) => <Product index={index} ele={ele} />)
       )}
-
-      {/* {currentProduct.map((ele,index)=><Product index={index} ele={ele}/>)} */}
     </div>
   );
 }

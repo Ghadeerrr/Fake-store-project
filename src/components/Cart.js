@@ -1,16 +1,66 @@
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { setCartUsers,setElement,setTotal } from "../reducers/cart/cart";
+import { useState } from "react";
 
 function Cart() {
+  const dispatch = useDispatch();
 const state = useSelector((state) => {
     return {
       cartUsers: state.Cart.cartUsers,
+      elementToDelete: state.Cart.elementToDelete,
       id: state.loginDetails.id,
+      total: state.Cart.total
     };
   });
 
   let array = state.cartUsers[state.id-1].cart;
-console.log(state.cartUsers[state.id-1]);
+  let t=0;
+  
+  // for (let i = 0; i < array.length; i++) {
+  //     t+=array[i].price 
+  // }
+  // const action4 = setTotal(t);
+  // dispatch(action4);
+  
+  function numItims(){
+    let total=0;
+    for (let i = 0; i < array.length; i++) {
+      if(document.getElementById(array[i].id) != null){
+        total+=(array[i].price)*(document.getElementById(array[i].id).value);
+      }
+      else{
+        total+=array[i].price
+      }
+      
+    }
+    let deliveryOption = document.getElementById("deliveryOption").value;
+    console.log(deliveryOption);
+    
+    if (deliveryOption == 1) {
+      total+=5;
+    }
+    else{
+      total+=15;
+    }
+    const action3 = setTotal(total);
+                      dispatch(action3);
+  }
+  
+  const deletEle=(e)=>{
+      return e.id != state.elementToDelete.id;
+  }
+  const deleteCart = (ele) =>{
+    const action2 = setElement(ele);
+    dispatch(action2);
+      let arr = state.cartUsers.slice();
+      let newArr = arr[state.id-1].cart.filter((e)=>deletEle(e))
+
+      arr[state.id-1].cart =newArr.slice();
+      const action = setCartUsers(arr);
+          dispatch(action);
+          
+  }
 return (
 
   <section className="h-100 h-custom" style={{backgroundColor: '#d2c9ff'}}>
@@ -24,10 +74,11 @@ return (
                   <div className="p-5">
                     <div className="d-flex justify-content-between align-items-center mb-5">
                       <h1 className="fw-bold mb-0 text-black">Shopping Cart</h1>
-                      <h6 className="mb-0 text-muted">3 items</h6>
+                      <h6 className="mb-0 text-muted">{array.length} items</h6>
                     </div>
                     {/* products */}
                     {array.map((ele)=>{
+                      // total2+=ele.price;
                       return(
                         <div>
                             <hr className="my-4" />
@@ -37,19 +88,20 @@ return (
                                       </div>
                                       <div className="col-md-3 col-lg-3 col-xl-3">
                                         <h6 className="text-muted">{ele.title}</h6>
-                                        <h6 className="text-black mb-0">{ele.title}</h6>
+                                        <h6 className="text-black mb-0">{ele.category}</h6>
                                       </div>
                                       <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
                                         <button className="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                                           <i className="fas fa-minus" />
                                         </button>
-                                        <input id="form1" min={0} name="quantity" defaultValue={1} type="number" className="form-control form-control-sm" />
+                                        <input id={ele.id} onChange={numItims} min={1} name="quantity"  defaultValue={1} type="number" className="form-control form-control-sm" />
                                         <button className="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                                           <i className="fas fa-plus" />
                                         </button>
                                       </div>
                                       <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                        <h6 className="mb-0">€ 44.00</h6>
+                                        <h6 className="mb-0">{ele.price}</h6>
+                                        <button   type="button" className="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark" onClick={()=>deleteCart(ele)} >Delete</button>
                                       </div>
                                       <div className="col-md-1 col-lg-1 col-xl-1 text-end">
                                         <a href="#!" className="text-muted"><i className="fas fa-times" /></a>
@@ -77,11 +129,9 @@ return (
                     </div>
                     <h5 className="text-uppercase mb-3">Shipping</h5>
                     <div className="mb-4 pb-2">
-                      <select className="select">
-                        <option value={1}>Standard-Delivery- €5.00</option>
-                        <option value={2}>Two</option>
-                        <option value={3}>Three</option>
-                        <option value={4}>Four</option>
+                      <select onChange={numItims} id="deliveryOption" className="select">
+                        <option value={1}>Standard-Delivery- 5.00</option>
+                        <option value={2}>Quick-Delivery- 15.00</option>
                       </select>
                     </div>
                     <h5 className="text-uppercase mb-3">Give code</h5>
@@ -93,8 +143,8 @@ return (
                     </div>
                     <hr className="my-4" />
                     <div className="d-flex justify-content-between mb-5">
-                      <h5 className="text-uppercase">Total price</h5>
-                      <h5>€ 137.00</h5>
+                      <p className="text-uppercase">Total price</p>
+                      <p>{state.total}</p>
                     </div>
                     <button type="button" className="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark">Register</button>
                   </div>

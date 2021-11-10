@@ -1,7 +1,6 @@
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import HomeIcon from "@material-ui/icons/Home";
-
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -10,9 +9,7 @@ import "./Navbar.css";
 function NavbarAll() {
   const state = useSelector((state) => {
     return {
-      userName: state.loginDetails.userName,
-      products: state.products.products,
-      filter: state.products.filter,
+      cartLength: state.Cart.cartLength
     };
   });
   return (
@@ -30,7 +27,7 @@ function NavbarAll() {
         <Link to="/cart" className="header-link">
           <div className="header-icon">
             <ShoppingCartOutlinedIcon className="Icon" />
-            <span className="basket-count">0</span>
+            <span className="basket-count">{state.cartLength}</span>
           </div>
         </Link>
       </div>
