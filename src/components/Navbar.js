@@ -69,7 +69,6 @@ function Navbar() {
             <span className="header-option2 basket-count">0</span>
           </div>
         </Link>
-        
       </div>
       <div className="header-nav">
         <Link to="/wishList" className="header-link">
@@ -80,11 +79,6 @@ function Navbar() {
       </div>
       <div className="button">
       <Link to="/login"><Button variant="outline-warning">Log in</Button></Link>
-      </div>
-      <div>
-      <Button component={Link} to="/admin">
-      Admin page
-      </Button>
       </div>
     </nav>
   );

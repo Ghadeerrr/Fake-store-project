@@ -52,6 +52,9 @@ function Home() {
       <Navbar />
       <AdvertisingSlides />
       {/* <Admain/> */}
+      <Button component={Link} to="/admin">
+      Admin page
+      </Button>
       <div className="Filtration">
       <Categories setCurrentPage={setCurrentPage} />
       <ProductPrice />
