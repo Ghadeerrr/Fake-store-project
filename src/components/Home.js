@@ -49,8 +49,10 @@ function Home() {
     <div>
       <Navbar />
       <AdvertisingSlides />
+      <div className="Filtration">
       <Categories setCurrentPage={setCurrentPage} />
       <ProductPrice />
+      </div>
       <Products currentProduct={currentProduct} />
       <Pagination
         productsPerPage={productsPerPage}
