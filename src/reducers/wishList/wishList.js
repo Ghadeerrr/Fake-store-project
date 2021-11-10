@@ -10,7 +10,7 @@ const wishList = (state = initialState, { type, payload }) => {
       return {
         wishListUsers: payload,
       };
-
+     
     default:
       return state;
   }
@@ -25,3 +25,4 @@ export const setWishList = (wishList) => {
     payload: wishList,
   };
 };
+

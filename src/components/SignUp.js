@@ -1,11 +1,19 @@
 import NavbarAll from "./NavbarAll";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoginDetails } from "../reducers/Login/login";
+import { setWishList } from "../reducers/wishList/wishList";
+import { setCartUsers } from "../reducers/cart/cart";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { setUserName, setId } from "../reducers/Login/login";
+
 function SignUp() {
+  const navigate = useNavigate();
   const state = useSelector((state) => {
     return {
+      wishListUsers: state.wishList.wishListUsers,
       loginDetails: state.loginDetails.loginDetails,
+      cartUsers: state.Cart.cartUsers
     };
   });
   console.log(state.loginDetails);
@@ -50,7 +58,7 @@ function SignUp() {
       }
     }
     if (x == 0 && y == 0) {
-      let newUser = {
+      let newUser = {id:state.loginDetails.length+1,
         email: email,
         username: userName,
         password: password,
@@ -61,9 +69,21 @@ function SignUp() {
       arr.push(newUser);
       console.log(arr);
       const action = setLoginDetails(arr);
-      dispatch(action);  
+      dispatch(action); 
+      let arrW= state.wishListUsers.slice();
+      arrW.push({id: state.loginDetails.length+1,wishList:[]})
+      const action2 = setWishList(arrW);
+      dispatch(action2);
+      const action4 = setUserName(userName);
+            dispatch(action4);
+            const action5 = setId(state.loginDetails.length+1);
+            dispatch(action5);
+      let arrc= state.cartUsers.slice();
+      arrc.push({id: state.loginDetails.length+1,cart:[]})
+      const action3 = setCartUsers(arrc);
+      dispatch(action3);  
       console.log(state.loginDetails);
-
+      navigate("/");
     }
   };
 
