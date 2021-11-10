@@ -17,6 +17,7 @@ function LogIn() {
       loginDetails: state.loginDetails.loginDetails,
     };
   });
+console.log(state.loginDetails);
 
   const usernameOrEmail = (e) => {
     setUserinfo(e.target.value);

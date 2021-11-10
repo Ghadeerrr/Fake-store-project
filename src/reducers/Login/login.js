@@ -1,5 +1,7 @@
 const initialState = {
-  loginDetails: [],
+  loginDetails: [{id:1,email: "john@gmail.com",username: "johnd",password: "123",name: { firstname: "john", lastname: "doe" }},
+    {id:2,email: "kevin@gmail.com",username: "kevinryan",password: "123",name: { firstname: "kevin", lastname: "ryan" }},
+    {id:3,email: "morrison@gmail.com",username: "mor_2314",password: "123",name: { firstname: "david", lastname: "morrison" }}],
   userName: "",
   id: 0,
 };
