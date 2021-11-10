@@ -4,6 +4,8 @@ import { setCartUsers,setElement,setTotal } from "../reducers/cart/cart";
 import { useState } from "react";
 
 function Cart() {
+  let disCode = "15dis";
+  let userCode;
   const dispatch = useDispatch();
 const state = useSelector((state) => {
     return {
@@ -16,13 +18,11 @@ const state = useSelector((state) => {
 
   let array = state.cartUsers[state.id-1].cart;
   let t=0;
+  if(state.total==0){
+    numItims()
+  }
   
-  // for (let i = 0; i < array.length; i++) {
-  //     t+=array[i].price 
-  // }
-  // const action4 = setTotal(t);
-  // dispatch(action4);
-  
+  // 
   function numItims(){
     let total=0;
     for (let i = 0; i < array.length; i++) {
@@ -34,17 +34,34 @@ const state = useSelector((state) => {
       }
       
     }
-    let deliveryOption = document.getElementById("deliveryOption").value;
-    console.log(deliveryOption);
-    
-    if (deliveryOption == 1) {
-      total+=5;
+    if(document.getElementById("deliveryOption") != null){
+      let deliveryOption = document.getElementById("deliveryOption").value;
+      console.log(deliveryOption);
+      
+      if (deliveryOption == 1) {
+        total+=5;
+      }
+      else{
+        total+=15;
+      }
     }
     else{
-      total+=15;
+      total+=5;
+    }
+    
+    if(userCode == disCode){
+      total=total-(total*0.15);
     }
     const action3 = setTotal(total);
                       dispatch(action3);
+  }
+
+  function code(e){
+    userCode = e.target.value;
+    console.log(userCode);
+    if(userCode == disCode){
+      numItims()
+    }
   }
   
   const deletEle=(e)=>{
@@ -137,7 +154,7 @@ return (
                     <h5 className="text-uppercase mb-3">Give code</h5>
                     <div className="mb-5">
                       <div className="form-outline">
-                        <input type="text" id="form3Examplea2" className="form-control form-control-lg" />
+                        <input type="text" id="form3Examplea2" className="form-control form-control-lg" onChange={code} />
                         <label className="form-label" htmlFor="form3Examplea2">Enter your code</label>
                       </div>
                     </div>
@@ -146,7 +163,7 @@ return (
                       <p className="text-uppercase">Total price</p>
                       <p>{state.total}</p>
                     </div>
-                    <button type="button" className="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark">Register</button>
+                    <button type="button" className="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark">Check Out</button>
                   </div>
                 </div>
               </div>
