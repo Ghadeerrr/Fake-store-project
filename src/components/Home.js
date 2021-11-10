@@ -3,6 +3,7 @@ import axios from "axios";
 import Products from "./Products";
 import Pagination from "./Pagination";
 import Categories from "./Categories";
+import Footer from "./Footer";
 import { setProducts, setFilter } from "../reducers/products/products";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "./Navbar";
@@ -56,6 +57,7 @@ function Home() {
         totalProducts={state.filter.length}
         paginate={setCurrentPage}
       />
+      <Footer />
     </div>
   );
 }

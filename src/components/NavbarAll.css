@@ -1,12 +1,37 @@
-.header-navbar {
+.header {
+  height: 60px;
+  background-color: #070a0e;
   display: flex;
-  justify-content: space-evenly;
-  margin-left: 2%;
-  margin-right: 2%;
-  margin-top: 1%;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.header-icon {
+.header-logo {
+  width: 200px;
+  height: 60.5px;
+  margin-right: 100px;
+  margin-left: 20px;
+}
+.button {
+  margin-left: 0px;
+}
+.header-nav {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-top: 1%;
+}
+.button {
+  margin-right: 2%;
+}
+p {
+  color: rgb(163, 136, 14);
+}
+
+.header-option {
   display: flex;
   flex-direction: column;
   margin-left: 10px;
@@ -29,6 +54,29 @@
   font-size: 14px;
   font-weight: 600;
   font-family: Arial, sans-serif;
+}
+
+.search {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  border-radius: 24px;
+}
+
+.searchIcon {
+  padding: 5px;
+  height: 30px !important;
+  background-color: rgb(230, 183, 31);
+  font-size: 3.2rem !important;
+
+  border-radius: 0 5px 5px 0;
+}
+
+.searchInput {
+  height: 30px;
+  padding: 10px;
+  border: none;
+  width: 80%;
 }
 
 .header-basket {
