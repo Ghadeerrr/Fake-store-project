@@ -9,6 +9,9 @@ import { useDispatch, useSelector } from "react-redux";
 import Navbar from "./Navbar";
 import AdvertisingSlides from "./AdvertisingSlides";
 import ProductPrice from "./ProductsPrice";
+import { Link } from 'react-router-dom'
+import Button from '@material-ui/core/Button';
+import Admain from "./Admin"
 
 function Home() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -49,6 +52,10 @@ function Home() {
     <div>
       <Navbar />
       <AdvertisingSlides />
+      {/* <Admain/> */}
+      <Button component={Link} to="/admin">
+      Admin page
+      </Button>
       <div className="Filtration">
       <Categories setCurrentPage={setCurrentPage} />
       <ProductPrice />
