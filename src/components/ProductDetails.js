@@ -1,57 +1,96 @@
-import { useParams, useHistory } from "react-router";
-import { useSelector } from "react-redux";
+import { useParams } from "react-router";
 import { Col, Row, Container, Card } from "react-bootstrap";
+import StarRateIcon from "@material-ui/icons/StarRate";
+import NavbarAll from "./NavbarAll";
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import { useSelector,useDispatch } from "react-redux";
+import { setCartUsers } from "../reducers/cart/cart";
+
 function ProductDetails() {
+  const dispatch = useDispatch();
+  const state = useSelector((state) => {
+    return {
+      cartUsers: state.Cart.cartUsers,
+      id: state.loginDetails.id
+    };
+  });
   const { id } = useParams();
-  const { filter } = useSelector((state) => state.products);
+  const { products } = useSelector((state) => state.products);
 
-  //   <div id="grid">
-  //   <Card style={{ width: '18rem' }}>
-  //       <Card.Img variant="top" src={filter[id].image} />
-  //       <Card.Body>
-  //         <Card.Title>{filter[id].title}</Card.Title>
-  //         <Card.Title>{filter[id].category}</Card.Title>
-  //         <Card.Text>{filter[id].description}</Card.Text>
-  //         <Card.Title>{filter[id].price + "$"}</Card.Title>
-  //       </Card.Body>
-  //   </Card>
-  // </div>
+
+  const addToCart =()=>{
+    
+    if(state.id == 0){
+      console.log("you have to log in to add to the wishlist");
+      
+      // `<alert`
+    }
+    else{
+      let arr = state.cartUsers.slice();
+        for (let i = 0; i < arr.length; i++) {
+          if(arr[i].id == state.id){
+           if(arr[i].cart.length == 0){
+            arr[i].cart.push(products[id]);
+            console.log(arr);
+            const action = setCartUsers(arr);
+            dispatch(action);
+            break;
+           }
+           else{
+             let eleExist=false;
+             for (let j = 0; j < arr[i].cart.length; j++) {
+              if(arr[i].cart[j].id == products[id].id){
+                eleExist=true;
+              } 
+             }
+             if(!eleExist){
+              arr[i].cart.push(products[id]);
+              console.log(arr);
+              const action = setCartUsers(arr);
+              dispatch(action);
+              break;
+             }
+             }
+           }}
+    }
+  }
   return (
-    <Card.Body>
-      <Container>
-        <Row>
-          <Col>
-            <img src={filter[id].image} height="500px" width="500px" />
-          </Col>
-          <Col>
-            <div>
-              <h4 className="text-uppercase text-black-60">
-                {filter[id].category}
-              </h4>
+    <div>
+      <NavbarAll />
 
-              <h1 className=" text-black-20">{filter[id].title}</h1>
-            </div>
-            <p className="lead">
-              Rating {filter[id].rating && filter[id].rating.rate}
-              <i class="bi bi-star-fill"></i>
-            </p>
-            <div className="display-6 fw-bold my-4">
-              {filter[id].price + "$"}
-            </div>
-            <p className="lead">{filter[id].description}</p>
-            <button className="btn btn-outline-dark">Add to cart</button>
-          </Col>
-        </Row>
+      <Card.Body>
+        <Container>
+          <Row>
+            <Col>
+              <img src={products[id].image} height="500px" width="500px" />
+            </Col>
+            <Col>
+              <div>
+                <h4 className="text-uppercase text-black-60">
+                  {products[id].category}
+                </h4>
 
-        {/* <Card.Body>
-                <Card.Title>{filter[id].title}</Card.Title>
-                <Card.Title>{filter[id].category}</Card.Title>
-                <Card.Text>{filter[id].description}</Card.Text>
-                <Card.Title>{filter[id].price + "$"}</Card.Title>
-              </Card.Body>
-          </Card> */}
-      </Container>
-    </Card.Body>
+                <h1 className=" text-black-50">{products[id].title}</h1>
+              </div>
+
+              <p className="Rating">
+                <b> Rating :</b> {products[id].rating.rate}
+                <StarRateIcon />( {products[id].rating.count})
+              </p>
+
+              <div className="display-6 fw-bold my-4">
+                {products[id].price + "$"}
+              </div>
+              <p className="description">{products[id].description}</p>
+
+              <button className="btn btn-outline-dark" onClick={addToCart}>
+                Add to cart <AddShoppingCartIcon />
+              </button>
+            </Col>
+          </Row>
+        </Container>
+      </Card.Body>
+    </div>
   );
 }
 
