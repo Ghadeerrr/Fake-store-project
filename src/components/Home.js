@@ -9,10 +9,10 @@ import { useDispatch, useSelector } from "react-redux";
 import Navbar from "./Navbar";
 import AdvertisingSlides from "./AdvertisingSlides";
 import ProductPrice from "./ProductsPrice";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 // import Button from '@material-ui/core/Button';
 import { Button } from "react-bootstrap";
-import Admain from "./Admin"
+import Admain from "./Admin";
 import "./Categories.css";
 
 function Home() {

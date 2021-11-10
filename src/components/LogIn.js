@@ -1,15 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoginDetails, setUserName, setId } from "../reducers/Login/login";
 import "./components.css";
+import NavbarAll from "./NavbarAll";
 function LogIn() {
+  const dispatch = useDispatch();
   const [userinfo, setUserinfo] = useState("");
   const [password, setPassword] = useState("");
   const [toggle, setToggle] = useState(false);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const state = useSelector((state) => {
@@ -17,19 +17,7 @@ function LogIn() {
       loginDetails: state.loginDetails.loginDetails,
     };
   });
-
-  useEffect(() => {
-    axios
-      .get("https://fakestoreapi.com/users?limit=3")
-      .then(function (response) {
-        console.log(response.data);
-        const action = setLoginDetails(response.data);
-        dispatch(action);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  }, []);
+console.log(state.loginDetails);
 
   const usernameOrEmail = (e) => {
     setUserinfo(e.target.value);
@@ -87,6 +75,7 @@ function LogIn() {
 
   return (
     <form>
+      <NavbarAll />
       {toggle && (
         <label>
           <b>Username or email is wrong</b>
