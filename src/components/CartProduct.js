@@ -32,5 +32,5 @@ function CartProduct({ele}){
         </div>
     );
 
-                    }
-                    export default CartProduct;
+}
+ export default CartProduct;

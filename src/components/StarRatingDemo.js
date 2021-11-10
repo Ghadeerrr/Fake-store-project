@@ -42,7 +42,7 @@ const state = useSelector((state) => {
     return (
       <div className="filter-star">
 
-        <h5>Star Rating </h5>
+        <h4>Star Rating </h4>
 
        <StarRating 
          count={5}

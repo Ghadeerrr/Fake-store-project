@@ -1,6 +1,7 @@
+import "./Categories.css";
 function Footer() {
   return (
-    <div className="container my-">
+    <div className="container my- footer">
       {/* Footer */}
       <footer
         className="text-center text-lg-start text-white"
