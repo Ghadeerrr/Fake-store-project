@@ -56,9 +56,11 @@ function Home() {
       <AdvertisingSlides />
       {/* <Admain/> */}
       <div className="Button-admin">
-      <Button variant="danger" component={Link} to="/admin">
+      <Link to="/admin">
+      <Button variant="danger">
       Admin page
       </Button>
+      </Link>
       </div>
       <div className="Filtration">
       <Categories setCurrentPage={setCurrentPage} />
