@@ -30,13 +30,15 @@
          
        }
        .Filtration{
-         /* border: 2px solid black; */
+        
          overflow: hidden;
          float: left;
          margin: 10px;
          margin-top: 25px;
+         margin-right: 70px;
        }
        .filter-Categories{
+     
          margin: 20px;
          padding: 20px;
 
@@ -45,11 +47,11 @@
 
         margin: 20px;
         padding: 20px;
+        cursor: pointer
        }
        .filter-star{
-
-        margin: 20px;
-        padding: 20px;
+        margin-top: 50px;
+        margin-left:  -8px;
        }
        .outline-dark{
          margin: 10px;
@@ -64,6 +66,18 @@
          margin: 5px;
          padding: 5px;
        }
-   
+       .Button-admin{
+         text-align: center;
+       }
+       .footer{
+        clear: both;
+        position: relative;
+       
+       }
+
+       .title-filter{
+         margin-bottom: 20px;
+       }
+
        
  
