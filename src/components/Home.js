@@ -16,6 +16,7 @@ import Admain from "./Admin";
 import "./Categories.css";
 
 function Home() {
+  let toggle = false;
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(6);
   const dispatch = useDispatch();
@@ -41,8 +42,12 @@ function Home() {
       filter: state.products.filter,
       loginDetails: state.loginDetails.loginDetails,
       wishListUsers: state.wishList.wishListUsers,
+      id: state.loginDetails.id,
     };
   });
+  if(state.id == 1){
+    toggle = true;
+  }
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -59,11 +64,11 @@ function Home() {
       <AdvertisingSlides />
       {/* <Admain/> */}
       <div className="Button-admin">
-      <Link to="/admin">
+      {toggle&& <Link to="/admin">
       <Button variant="danger">
       Admin page
       </Button>
-      </Link>
+      </Link>}
       </div>
       <div className="Filtration">
       <Categories setCurrentPage={setCurrentPage} />
