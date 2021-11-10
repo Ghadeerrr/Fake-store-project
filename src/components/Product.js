@@ -25,6 +25,8 @@ function Product({ele,index}) {
          if(arr[i].id == state.id){
            if(arr[i].wishList.length == 0){
             arr[i].wishList.push(ele);
+            console.log(arr);
+            
             const action = setWishList(arr);
             dispatch(action);
             break;
@@ -40,6 +42,7 @@ function Product({ele,index}) {
               arr[i].wishList.push(ele);
               const action = setWishList(arr);
               dispatch(action);
+              console.log(arr);
               break;
              }
              }

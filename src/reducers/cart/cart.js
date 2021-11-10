@@ -37,6 +37,7 @@ const Cart = (state = initialState, { type, payload }) => {
         cartLength: state.cartLength,
         total: payload
       };
+      
     default:
       return state;
   }
@@ -75,3 +76,4 @@ export const setTotal = (total) => {
     payload: total.toFixed(2),
   };
 };
+

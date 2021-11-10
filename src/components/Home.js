@@ -39,6 +39,8 @@ function Home() {
     return {
       products: state.products.products,
       filter: state.products.filter,
+      loginDetails: state.loginDetails.loginDetails,
+      wishListUsers: state.wishList.wishListUsers,
     };
   });
 
@@ -49,7 +51,8 @@ function Home() {
     indexOfLastProduct
   );
   console.log(currentProduct);
-
+  console.log(state.loginDetails);
+  console.log(state.wishListUsers);
   return (
     <div>
       <Navbar />
