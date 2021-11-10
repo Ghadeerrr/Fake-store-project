@@ -1,34 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Noto+Serif:wght@700&family=Yanone+Kaffeesatz:wght@600&display=swap");
 .header {
   height: 60px;
-  background-color: #070a0e;
+  background-color: #cfb997;
   display: flex;
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 100;
 }
+.text {
+  font-family: "Anton", sans-serif;
+  font-family: "Noto Serif", serif;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  margin-top: 1%;
+  font-size: 30px;
+}
+.text span {
+  color: #000000;
+}
+h5 {
+  color: white;
+}
 
-.header-logo {
-  width: 200px;
-  height: 60.5px;
-  margin-right: 100px;
-  margin-left: 20px;
-}
-.button {
-  margin-left: 0px;
-}
 .header-nav {
   display: flex;
   justify-content: space-evenly;
-  margin-left: 1%;
-  margin-right: 1%;
+  margin-bottom: 1%;
   margin-top: 1%;
 }
 .button {
-  margin-right: 2%;
-}
-p {
-  color: rgb(163, 136, 14);
+  margin-right: 1%;
 }
 
 .header-option {
@@ -36,24 +37,23 @@ p {
   flex-direction: column;
   margin-left: 10px;
   margin-right: 10px;
-  color: rgb(230, 183, 31);
+  color: rgb(255, 255, 255);
 }
 
 .header-link {
   color: white;
   text-decoration: none;
 }
-
-.header-option1 {
-  font-size: 12px;
-  font-weight: 400;
-  font-family: Arial, sans-serif;
+.Icon {
+  font-size: 2rem !important;
 }
-
-.header-option2 {
-  font-size: 14px;
-  font-weight: 600;
-  font-family: Arial, sans-serif;
+.IconHome {
+  font-size: 3rem !important;
+}
+.header-option1 {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: rgb(255, 255, 255);
 }
 
 .search {
@@ -66,15 +66,16 @@ p {
 .searchIcon {
   padding: 5px;
   height: 30px !important;
-  background-color: rgb(230, 183, 31);
+  background-color: rgba(0, 0, 0, 0.164);
   font-size: 3.2rem !important;
 
   border-radius: 0 5px 5px 0;
 }
 
 .searchInput {
+  margin-left: 4%;
   height: 30px;
-  padding: 10px;
+
   border: none;
   width: 80%;
 }
@@ -87,4 +88,22 @@ p {
 .basket-count {
   margin-left: 10px;
   margin-right: 10px;
+}
+.navbar-home {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.navbar-cart {
+  margin-left: 80%;
+}
+.navbar-Favorite {
+  margin-right: 1%;
+}
+.navbar-button {
+  margin-right: 1%;
+}
+.header-icon {
+  display: flex;
+
+  color: rgb(255, 255, 255);
 }

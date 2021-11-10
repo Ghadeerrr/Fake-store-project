@@ -1,6 +1,8 @@
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
+
 import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -40,16 +42,46 @@ function Navbar() {
     const action = setFilter(newArray);
     dispatch(action);
   };
+  // <nav className="header">
+  //   <div className="header-option">
+  //     <ShoppingBasketIcon className="Icon" />
+  //   </div>
+  //   <h4 className="text">Online Store</h4>
+  //   <div className="search">
+  //     <input type="text" onChange={InputName} className="searchInput" />
+  //     <SearchIcon className="searchIcon" />
+  //   </div>
+  //   <p>{state.userName}</p>
+  //   <div className="header-nav">
+  //     <Link to="/cart" className="header-link">
+  //       <div className="header-option">
+  //         <ShoppingCartOutlinedIcon className="Icon" />
+  //         <span className="header-option1 basket-count">0</span>
+  //       </div>
+  //     </Link>
+  //   </div>
+  //   <div className="header-nav">
+  //     <Link to="/wishList" className="header-link">
+  //       <div className="header-option">
+  //         <FavoriteIcon className="Icon" />
+  //       </div>
+  //     </Link>
+  //   </div>
+  //   <div className="button">
+  //     <Link to="/login">
+  //       <Button variant="btn btn-outline-secondary">Log in</Button>
+  //     </Link>
+  //   </div>
+  // </nav>;
 
   return (
     <nav className="header">
-      <Link to="/">
-        <img
-          className="header-logo"
-          src="https://i.pinimg.com/564x/fe/ac/53/feac53c307efbfb9438514c0be7734af.jpg"
-          alt="logo"
-        />
-      </Link>
+      <div className="header-option">
+        <ShoppingBasketIcon className="Icon" />
+      </div>
+      <h5 className="text">
+        <span>O</span>nline <span>S</span>tore
+      </h5>
       <div className="search">
         <input type="text" onChange={InputName} className="searchInput" />
         <SearchIcon className="searchIcon" />
@@ -57,22 +89,22 @@ function Navbar() {
       <p>{state.userName}</p>
       <div className="header-nav">
         <Link to="/cart" className="header-link">
-          <div className="header-option">
-            <ShoppingCartOutlinedIcon />
-            <span className="header-option2 basket-count">0</span>
+          <div className="header-option1">
+            <ShoppingCartOutlinedIcon className="Icon" />
+            <span className="header-option1 basket-count">0</span>
           </div>
         </Link>
       </div>
       <div className="header-nav">
-        <Link to="/wishList" className="header-link">
+        <Link to="/wishList">
           <div className="header-option">
-            <FavoriteIcon />
+            <FavoriteIcon className="Icon" />
           </div>
         </Link>
       </div>
       <div className="button">
         <Link to="/login">
-          <Button variant="outline-warning">Log in</Button>
+          <Button variant="btn btn-outline-dark">Log in</Button>
         </Link>
       </div>
     </nav>
