@@ -19,7 +19,7 @@ function Navbar() {
       userName: state.loginDetails.userName,
       products: state.products.products,
       filter: state.products.filter,
-      cartLength: state.Cart.cartLength
+      cartLength: state.Cart.cartLength,
     };
   });
 
@@ -42,7 +42,7 @@ function Navbar() {
     const action = setFilter(newArray);
     dispatch(action);
   };
- 
+
   return (
     <nav className="header">
       <div className="header-option">
@@ -52,15 +52,22 @@ function Navbar() {
         <span>O</span>nline <span>S</span>tore
       </h5>
       <div className="search">
-        <input type="text" placeholder="Search" onChange={InputName} className="searchInput" />
+        <input
+          type="text"
+          placeholder="Search"
+          onChange={InputName}
+          className="searchInput"
+        />
         <SearchIcon className="searchIcon" />
       </div>
-      <p>{state.userName}</p>
+      <p className="user-p"> {state.userName}</p>
       <div className="header-nav">
         <Link to="/cart" className="header-link">
           <div className="header-option1">
-            <ShoppingCartOutlinedIcon className="Icon" />
-            <span className="header-option1 basket-count">{state.cartLength}</span>
+            <span className="header-option1 basket-count">
+              {state.cartLength}
+            </span>
+            <ShoppingCartOutlinedIcon className="Icon-cart" />
           </div>
         </Link>
       </div>
