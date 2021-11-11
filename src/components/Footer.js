@@ -5,8 +5,8 @@ import "./Categories.css";
 
 function Footer() {
   return (
-    <div className="container my- footer">
-      <div className="text-center text-lg-start bg-light text-muteds">
+    <div >
+      <div className="text-center text-lg-start bg-light text-muteds footer">
         {/* Footer */}
         <footer
           className="text-center text-lg-start text-white"
@@ -156,10 +156,8 @@ function Footer() {
             className="text-center p-3"
             style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
           >
-            © 2020 Copyright:
-            <a className="text-white" href="https://mdbootstrap.com/">
-              MDBootstrap.com
-            </a>
+            © 2020 Copyright
+          
           </div>
         </footer>
       </div>

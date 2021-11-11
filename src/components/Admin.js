@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts, setFilter } from "../reducers/products/products";
 import { Link } from 'react-router-dom'
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
+import { Button } from "react-bootstrap";
 function Admin(){
 
     const [Product, setProduct] = useState('');
@@ -125,32 +126,105 @@ function Admin(){
 
     return(
 
-        <div>
-         <Button component={Link} to="/">
-         Go Back to the Home Page
-         </Button>
-        <div className="modify-Product">
-            <input type="text" placeholder="Id Number" onChange={InputIdNumber} />
-            <button type="button" onClick={dele}>delete</button>
-        </div>
-        <div>
-            <input type="text" placeholder="Category" onChange={InputCategory} />
-            <input type="text" placeholder="Description" onChange={InputDescription} />
-            <input type="text" placeholder="Id" onChange={InputId} />
-            <input type="text" placeholder="Price" onChange={InputPrice} />
-            <input type="text" placeholder="Title" onChange={InputTitle} />
-            <button type="button" onClick={modify}>modify Product</button>
-        </div>
-        <div>
-            <input type="text" placeholder="Category" onChange={InputCategory} />
-            <input type="text" placeholder="Description" onChange={InputDescription} />
-            <input type="text" placeholder="Price" onChange={InputPrice} />
-            <input type="text" placeholder="Title" onChange={InputTitle} />
-            <input type="text" placeholder="Image" onChange={InputImage} />
-            <button type="button" onClick={NewProduct}>add New Product</button>
-        </div>
-        
-    
+        <div >
+            {/* <div className="Button-admin">
+                <Button   variant="danger" component={Link} to="/">
+                Go Back to the Home Page
+                </Button>
+            </div> */}
+            <div className="Button-admin  ">
+                <Link to="/">
+                    <Button variant="danger myBtn">
+                    Home page
+                    </Button>
+                </Link>
+            </div>
+
+            {/* <div className="modify-Product">
+                <input type="text" placeholder="Id Number" onChange={InputIdNumber} />
+                <button type="button" onClick={dele}>delete</button>
+            </div> */}
+            {/* <div>
+                <input type="text" placeholder="Category" onChange={InputCategory} />
+                <input type="text" placeholder="Description" onChange={InputDescription} />
+                <input type="text" placeholder="Id" onChange={InputId} />
+                <input type="text" placeholder="Price" onChange={InputPrice} />
+                <input type="text" placeholder="Title" onChange={InputTitle} />
+                <button type="button" onClick={modify}>modify Product</button>
+            </div> */}
+            {/* <div>
+                <input type="text" placeholder="Category" onChange={InputCategory} />
+                <input type="text" placeholder="Description" onChange={InputDescription} />
+                <input type="text" placeholder="Price" onChange={InputPrice} />
+                <input type="text" placeholder="Title" onChange={InputTitle} />
+                <input type="text" placeholder="Image" onChange={InputImage} />
+                <button type="button" onClick={NewProduct}>add New Product</button>
+            </div> */}
+            
+            <div className="signupFrm">
+                    <div action className="form">
+                        <h4 className="title">delete Product</h4>
+                        <div className="inputContainer">
+                        <input type="text" className="input" placeholder="Id Number" onChange={InputIdNumber} />
+                        <label htmlFor className="label">Id</label>
+                        </div>
+                        <button type="button" className="btn btn-outline-dark" onClick={dele}>delete</button>
+                    </div>
+                </div>
+
+                <div className="signupFrm">
+                    <div action className="form">
+                        <h4 className="title">add New Product</h4>
+                        <div className="inputContainer">
+                        <input type="text" className="input" placeholder="Category" onChange={InputCategory} />
+                        <label htmlFor className="label">Category</label>
+                        </div>
+                        <div className="inputContainer">
+                        <input type="text" className="input" placeholder="Description" onChange={InputDescription} />
+                        <label htmlFor className="label">Description</label>
+                        </div>
+                        <div className="inputContainer">
+                        <input type="text" className="input" placeholder="Price" onChange={InputPrice} />
+                        <label htmlFor className="label">Price</label>
+                        </div>
+                        <div className="inputContainer">
+                        <input type="text" className="input" placeholder="Title" onChange={InputTitle} />
+                        <label htmlFor className="label">Title</label>
+                        </div>
+                        <div className="inputContainer">
+                        <input type="text" className="input" placeholder="Image" onChange={InputImage} />
+                        <label htmlFor className="label">Image</label>
+                        </div>
+                        <button type="button" className="btn btn-outline-dark" onClick={NewProduct}>add New Product</button>
+                    </div>
+                </div>
+
+                <div className="signupFrm">
+                    <div action className="form">
+                        <h4 className="title">Modify Product</h4>
+                        <div className="inputContainer">
+                        <input type="text" className="input" placeholder="Id" onChange={InputId} />
+                        <label htmlFor className="label">Id</label>
+                        </div>
+                        <div className="inputContainer">
+                        <input type="text" className="input" placeholder="Category" onChange={InputCategory} />
+                        <label htmlFor className="label">Category</label>
+                        </div>
+                        <div className="inputContainer">
+                        <input type="text" className="input" placeholder="Description" onChange={InputDescription} />
+                        <label htmlFor className="label">Description</label>
+                        </div>
+                        <div className="inputContainer">
+                        <input type="text" className="input" placeholder="Price" onChange={InputPrice} />
+                        <label htmlFor className="label">Price</label>
+                        </div>
+                        <div className="inputContainer">
+                        <input type="text" className="input" placeholder="Title" onChange={InputTitle} />
+                        <label htmlFor className="label">Title</label>
+                        </div>
+                        <button type="button" className="btn btn-outline-dark" onClick={modify}>modify Product</button>
+                    </div>
+                </div>
         </div>
     )
 } 

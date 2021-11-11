@@ -55,21 +55,26 @@ function Product({ele,index}) {
   
     return(  
      <div>
-      <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={ele.image} />
-        <Card.Body>
-          <Card.Title>{ele.title}</Card.Title>
-          <Card.Title>{ele.price + "$"}</Card.Title>
-          <NavLink to={`/ProductDetails/${index}`} class="btn btn-outline-dark">
-              Details
-            </NavLink>
-          </Card.Body>
-          <button  onClick={()=>addWishList(ele)} >Wish List</button>
-    </Card>
-    
+
+    <div className="container">
+      <div className="row justify-content-around">
+
+
+         <div className=" my-5 py-4 Sh-card"  style={{width: "18rem"}}>
+                <img className="card-img-top iamge-prodect " src={ele.image}  alt="image item"/>
+                    <div className="card-body text-center">
+                        <h4 className="card-title title-discription">{ele.title}</h4>
+                        <p className="lead">{ele.price + "$"}</p>
+                        <NavLink  to={`/ProductDetails/${index}`} className="btn btn-outline-dark me-md-2">Details</NavLink>
+                      <button type="button" class="btn btn-outline-danger " onClick={()=>addWishList(ele)} >add Wish List</button>
+                    </div>
+          </div>
+
+      </div>
      </div>
-      
-    
+     
+     </div>
+          
     );
    
   }
