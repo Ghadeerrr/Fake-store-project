@@ -66,7 +66,7 @@ function Product({ele,index}) {
                         <h4 className="card-title title-discription">{ele.title}</h4>
                         <p className="lead">{ele.price + "$"}</p>
                         <NavLink  to={`/ProductDetails/${index}`} className="btn btn-outline-dark me-md-2">Details</NavLink>
-                      <button type="button" class="btn btn-outline-danger " onClick={()=>addWishList(ele)} >add Wish List</button>
+                      <button type="button" class="btn btn-outline-danger " onClick={()=>addWishList(ele)} >Add Wish List</button>
                     </div>
           </div>
 
