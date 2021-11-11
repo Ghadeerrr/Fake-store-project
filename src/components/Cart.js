@@ -1,14 +1,17 @@
 import { useSelector,useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { setCartUsers,setElement,setTotal } from "../reducers/cart/cart";
+import { setCartUsers,setElement,setTotal,addOrder } from "../reducers/cart/cart";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
+  const navigate = useNavigate();
   let disCode = "15dis";
   let userCode;
   const dispatch = useDispatch();
 const state = useSelector((state) => {
     return {
+      preOrders: state.Cart.preOrders,
       cartUsers: state.Cart.cartUsers,
       elementToDelete: state.Cart.elementToDelete,
       id: state.loginDetails.id,
@@ -22,7 +25,6 @@ const state = useSelector((state) => {
     numItims()
   }
   
-  // 
   function numItims(){
     let total=0;
     for (let i = 0; i < array.length; i++) {
@@ -62,6 +64,33 @@ const state = useSelector((state) => {
     if(userCode == disCode){
       numItims()
     }
+  }
+
+  function checkOut(){
+    console.log("hi");
+    
+    let arrayOrders = state.preOrders.slice();
+    let ar =[];
+    let array2=state.cartUsers[state.id-1].cart;
+    for (let i = 0; i < array2.length; i++) {
+      if(document.getElementById(array2[i].id) != null){
+        ar.push({image:array2[i].image,title:array2[i].title,count:document.getElementById(array2[i].id).value})
+      }
+      else{
+        ar.push({image:array2[i].image,title:array2[i].title,count:1})
+      }
+    }
+    let order = {products:ar,total:state.total};
+
+    arrayOrders[state.id-1].preOrders.push(order);
+    console.log(arrayOrders);
+    
+    const actionf = addOrder(arrayOrders);
+          dispatch(actionf);
+          navigate("/previousorders");
+          console.log(array);
+          
+
   }
   
   const deletEle=(e)=>{
@@ -163,7 +192,7 @@ return (
                       <p className="text-uppercase">Total price</p>
                       <p>{state.total}</p>
                     </div>
-                    <button type="button" className="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark">Check Out</button>
+                    <button type="button" className="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark" onClick={checkOut}>Check Out</button>
                   </div>
                 </div>
               </div>
