@@ -19,22 +19,9 @@ function Home() {
   let toggle = false;
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(6);
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    axios
-      .get("https://fakestoreapi.com/products")
-      .then(function (response) {
-        console.log(response.data);
-        const action = setProducts(response.data);
-        dispatch(action);
-        const action2 = setFilter(response.data);
-        dispatch(action2);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  }, []);
+
+  
 
   const state = useSelector((state) => {
     return {
