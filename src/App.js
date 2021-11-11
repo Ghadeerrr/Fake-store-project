@@ -9,24 +9,27 @@ import WishList from "./components/WishList";
 import Admin from "./components/Admin";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import axios from "axios";
 import { useDispatch } from "react-redux";
-import { setLoginDetails } from "./reducers/Login/login";
+import { useEffect } from "react";
+import { setProducts, setFilter } from "./reducers/products/products";
+import axios from "axios";
 
 function App() {
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   axios
-  //     .get("https://fakestoreapi.com/users?limit=3")
-  //     .then(function (response) {
-  //       console.log(response.data);
-  //       const action = setLoginDetails(response.data);
-  //       dispatch(action);
-  //     })
-  //     .catch(function (error) {
-  //       console.error(error);
-  //     });
-  // }, []);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    axios
+      .get("https://fakestoreapi.com/products")
+      .then(function (response) {
+        console.log(response.data);
+        const action = setProducts(response.data);
+        dispatch(action);
+        const action2 = setFilter(response.data);
+        dispatch(action2);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }, []);
   return (
     <BrowserRouter>
       <div>
