@@ -24,3 +24,18 @@
 
 -Administrator's page, can delete a product, edit a product, add a product
 
+
+##  Add product to Card
+
+
+![image2](https://user-images.githubusercontent.com/70335592/141267534-b6905eea-e8fa-46a5-9492-65fce66fab0c.png)
+
+
+<br>
+
+
+## Administrator's page
+
+
+![image3](https://user-images.githubusercontent.com/70335592/141267574-496a3847-4d97-41dc-b556-69ed4823c118.png)
+
