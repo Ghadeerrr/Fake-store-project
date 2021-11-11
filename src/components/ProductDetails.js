@@ -11,12 +11,13 @@ function ProductDetails() {
   const state = useSelector((state) => {
     return {
       cartUsers: state.Cart.cartUsers,
-      cartUsers: state.Cart.cartUsers,
       id: state.loginDetails.id
     };
   });
   const { id } = useParams();
   const { products } = useSelector((state) => state.products);
+console.log(products);
+console.log(id);
 
 
   const addToCart =()=>{

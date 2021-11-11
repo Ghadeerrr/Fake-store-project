@@ -2,6 +2,7 @@ import { stat } from "fs";
 
 const initialState = {
   cartUsers: [{id:1 ,cart:[]},{id:2 ,cart:[]},{id:3 ,cart:[]}],
+  preOrders: [{id:1 ,preOrders:[]},{id:2 ,preOrders:[]},{id:3 ,preOrders:[]}],
   elementToDelete: {},
   cartLength:0,
   total:0
@@ -12,6 +13,7 @@ const Cart = (state = initialState, { type, payload }) => {
     case "ADD_CART":
       return {
         cartUsers: payload,
+        preOrders: state.preOrders,
         elementToDelete: state.elementToDelete,
         cartLength: state.cartLength,
         total: state.total
@@ -19,6 +21,7 @@ const Cart = (state = initialState, { type, payload }) => {
       case "DELETE_FROM_CART":
       return {
         cartUsers: state.cartUsers,
+        preOrders: state.preOrders,
         elementToDelete: payload,
         cartLength: state.cartLength,
         total: state.total
@@ -26,6 +29,7 @@ const Cart = (state = initialState, { type, payload }) => {
       case "ADD_CART_LENGTH":
       return {
         cartUsers: state.cartUsers,
+        preOrders: state.preOrders,
         elementToDelete: state.elementToDelete,
         cartLength: state.cartLength+1,
         total: state.total
@@ -33,9 +37,18 @@ const Cart = (state = initialState, { type, payload }) => {
       case "ADD_TOTAL":
       return {
         cartUsers: state.cartUsers,
+        preOrders: state.preOrders,
         elementToDelete: state.elementToDelete,
         cartLength: state.cartLength,
         total: payload
+      };
+      case "ADD_ORDER":
+      return {
+        cartUsers: state.cartUsers,
+        preOrders: payload,
+        elementToDelete: state.elementToDelete,
+        cartLength: state.cartLength,
+        total: state.total
       };
       
     default:
@@ -74,6 +87,15 @@ export const setTotal = (total) => {
   return {
     type: "ADD_TOTAL",
     payload: total.toFixed(2),
+  };
+};
+
+export const addOrder = (order) => {
+  console.log(order);
+  
+  return {
+    type: "ADD_ORDER",
+    payload: order,
   };
 };
 
