@@ -39,8 +39,9 @@ return(
 
                  
                    <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                         <h6 className="mb-0">{state.preOrders[state.id-1].preOrders[0].total}</h6>
+                                         <h6 className="mb-0">Total price {state.preOrders[state.id-1].preOrders[0].total}</h6>
                                        </div>
+                                       <hr/>
                     <Link to="/"><a href="#!" className="text-body"><i className="fas fa-long-arrow-alt-left me-2" />Back to shop</a></Link> 
     </div>               
 );
