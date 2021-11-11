@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Noto+Serif:wght@700&family=Yanone+Kaffeesatz:wght@600&display=swap");
+.background {
+  background-color: #cfb997;
+
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+  font-family: sans-serif;
+  justify-content: center;
+
+  background-position: center;
+}
+.container-S {
+  width: 430px;
+  height: 580px;
+  background: white;
+  padding: 25px 40px;
+  border-radius: 7%;
+}
+.icon-log {
+  font-size: 9rem !important;
+
+  margin-left: 30%;
+  margin-right: 40%;
+}
+.b-login {
+  color: red;
+}
+
+.title-b {
+  font-family: "Anton", sans-serif;
+  font-family: "Noto Serif", serif;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  text-align: center;
+  font-size: 40px;
+  color: rgba(27, 25, 25, 0.856);
+}
+.button-b {
+  margin-left: 30%;
+  margin-right: 40%;
+  background-color: rgba(27, 25, 25, 0.856);
+  width: 150px;
+  height: 50px;
+  border-radius: 25px 25px 25px 25px;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  border-color: wheat;
+}
+.Icon-x {
+  color: black;
+}
+.Icon-x-m {
+  margin-left: 100%;
+}

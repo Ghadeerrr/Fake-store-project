@@ -2,9 +2,15 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setLoginDetails, setUserName, setId } from "../reducers/Login/login";
+import { Link } from "react-router-dom";
+
+import { setUserName, setId } from "../reducers/Login/login";
+import CloseIcon from "@material-ui/icons/Close";
+
+import PersonPinIcon from "@material-ui/icons/PersonPin";
+
 import "./components.css";
-import NavbarAll from "./NavbarAll";
+import "./Login.css";
 function LogIn() {
   const dispatch = useDispatch();
   const [userinfo, setUserinfo] = useState("");
@@ -17,7 +23,7 @@ function LogIn() {
       loginDetails: state.loginDetails.loginDetails,
     };
   });
-console.log(state.loginDetails);
+  console.log(state.loginDetails);
 
   const usernameOrEmail = (e) => {
     setUserinfo(e.target.value);
@@ -74,68 +80,72 @@ console.log(state.loginDetails);
   };
 
   return (
-    <form>
-      <NavbarAll />
-      {toggle && (
-        <label>
-          <b>Username or email is wrong</b>
-        </label>
-      )}
-
-      <h3>Sign In</h3>
-
-      <div className="form-group">
-        <label>
-          <b>Username or email address</b>
-        </label>
-        <input
-          type="text"
-          onChange={usernameOrEmail}
-          className="form-control"
-          placeholder="Enter email or userName"
-        />
-      </div>
-      <div className="form-group">
-        <label>
-          <b>Password</b>
-        </label>
-        <input
-          type="password"
-          onChange={passwordValue}
-          className="form-control"
-          placeholder="Enter password"
-        />
-      </div>
-      <div className="form-group">
-        <div className="custom-control custom-checkbox">
-          <input
-            type="checkbox"
-            className="custom-control-input"
-            id="customCheck1"
-          />
-          <label className="custom-control-label" htmlFor="customCheck1">
-            Remember me
-          </label>
+    <div className="background">
+      <form>
+        <div className="container-S">
+          <div className="Icon-x-m">
+            <Link to="/">
+              <CloseIcon className="Icon-x" />
+            </Link>
+          </div>
+          <PersonPinIcon className="icon-log" />
+          <h2 className="title-b">Log In</h2>
+          <div className="form-group">
+            <label>
+              <b>Username or email address</b>
+            </label>
+            <input
+              type="text"
+              onChange={usernameOrEmail}
+              className="form-control"
+              placeholder="Enter email or username"
+            />
+          </div>
+          <div className="form-group">
+            <label>
+              <b>Password</b>
+            </label>
+            <input
+              type="password"
+              onChange={passwordValue}
+              className="form-control"
+              placeholder="Enter password"
+            />
+          </div>
+          <div className="form-group">
+            <div className="custom-control custom-checkbox">
+              <input
+                type="checkbox"
+                className="custom-control-input"
+                id="customCheck1"
+              />
+              <label className="custom-control-label" htmlFor="customCheck1">
+                Remember me
+              </label>
+            </div>
+          </div>
+          {toggle && (
+            <label>
+              <b className="b-login">Username or email is wrong</b>
+            </label>
+          )}
+          <br />
+          <button
+            type="submit"
+            onClick={(e) => checkLogin(e)}
+            className="button-b"
+          >
+            Login
+          </button>
+          <p className="forgot-password text-right">
+            Forgot <a href="#">password?</a>
+          </p>
+          <p className="forgot-password text-right">
+            You don't have an account ?<a href="/SignUp">Sign Up</a>
+          </p>{" "}
         </div>
-      </div>
-
-      <button
-        type="submit"
-        onClick={(e) => checkLogin(e)}
-        className="btn btn-primary btn-block"
-      >
-        Login
-      </button>
-
-      {/* <label>
-         <input/> Remember me</label> */}
-      <p className="forgot-password text-right">
-        Forgot <a href="#">password?</a>
-      </p>
-      <p className="forgot-password text-right">
-        You don't have an account ?<a href="/SignUp">Sign Up</a>
-      </p>
-    </form>
+      </form>
+    </div>
   );
 }
 

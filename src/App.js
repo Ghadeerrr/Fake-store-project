@@ -5,13 +5,12 @@ import Login from "./components/LogIn";
 import SignUp from "./components/SignUp";
 import ProductDetails from "./components/ProductDetails";
 import WishList from "./components/WishList";
-import Admin from "./components/Admin"
+import Admin from "./components/Admin";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setLoginDetails } from "./reducers/Login/login";
-import { useEffect } from "react";
 
 function App() {
   // const dispatch = useDispatch();
@@ -37,6 +36,7 @@ function App() {
           <Route path="/wishList" element={<WishList />} />
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<Admin />} />
+
           <Route path="/signUp" element={<SignUp />} />
         </Routes>
       </div>
