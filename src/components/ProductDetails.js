@@ -3,49 +3,45 @@ import { Col, Row, Container, Card } from "react-bootstrap";
 import StarRateIcon from "@material-ui/icons/StarRate";
 import NavbarAll from "./NavbarAll";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
-import { useSelector,useDispatch } from "react-redux";
-import { setCartUsers,setCartLength } from "../reducers/cart/cart";
+import { useSelector, useDispatch } from "react-redux";
+import { setCartUsers, setCartLength } from "../reducers/cart/cart";
 
 function ProductDetails() {
   const dispatch = useDispatch();
   const state = useSelector((state) => {
     return {
       cartUsers: state.Cart.cartUsers,
-      id: state.loginDetails.id
+      id: state.loginDetails.id,
     };
   });
   const { id } = useParams();
   const { products } = useSelector((state) => state.products);
-console.log(products);
-console.log(id);
+  console.log(products);
+  console.log(id);
 
-
-  const addToCart =()=>{
-    
-    if(state.id == 0){
+  const addToCart = () => {
+    if (state.id == 0) {
       alert("You have to log in to add to cart");
-    }
-    else{
+    } else {
       let arr = state.cartUsers.slice();
-        for (let i = 0; i < arr.length; i++) {
-          if(arr[i].id == state.id){
-           if(arr[i].cart.length == 0){
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i].id == state.id) {
+          if (arr[i].cart.length == 0) {
             arr[i].cart.push(products[id]);
             console.log(arr);
             const action = setCartUsers(arr);
             dispatch(action);
             const action2 = setCartLength();
-              dispatch(action2);
+            dispatch(action2);
             break;
-           }
-           else{
-             let eleExist=false;
-             for (let j = 0; j < arr[i].cart.length; j++) {
-              if(arr[i].cart[j].id == products[id].id){
-                eleExist=true;
-              } 
-             }
-             if(!eleExist){
+          } else {
+            let eleExist = false;
+            for (let j = 0; j < arr[i].cart.length; j++) {
+              if (arr[i].cart[j].id == products[id].id) {
+                eleExist = true;
+              }
+            }
+            if (!eleExist) {
               arr[i].cart.push(products[id]);
               console.log(arr);
               const action = setCartUsers(arr);
@@ -53,11 +49,12 @@ console.log(id);
               const action2 = setCartLength();
               dispatch(action2);
               break;
-             }
-             }
-           }}
+            }
+          }
+        }
+      }
     }
-  }
+  };
   return (
     <div>
       <NavbarAll />
