@@ -1,8 +1,14 @@
 # store-project
 
 
-
 ### Store View and buy products.
+
+
+
+### Linke: https://fake-store-project-final-j9igdfyvg-oxo1616-gmailcom.vercel.app/
+
+---
+<br>
 
 
 ![image1](https://user-images.githubusercontent.com/70335592/141263649-49e7007a-fec6-4062-8a0e-5303cc51b0ff.png)
