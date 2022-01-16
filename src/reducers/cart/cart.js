@@ -50,6 +50,14 @@ const Cart = (state = initialState, { type, payload }) => {
         cartLength: state.cartLength,
         total: state.total
       };
+      case "DELETE_CART_LENGTH":
+      return {
+        cartUsers: state.cartUsers,
+        preOrders: state.preOrders,
+        elementToDelete: state.elementToDelete,
+        cartLength: 0,
+        total: state.total
+      };
       
     default:
       return state;
@@ -77,6 +85,13 @@ export const setElement = (element) => {
 export const setCartLength = () => {
   return {
     type: "ADD_CART_LENGTH",
+
+  };
+};
+
+export const deleteCartLength = () => {
+  return {
+    type: "DELETE_CART_LENGTH",
 
   };
 };

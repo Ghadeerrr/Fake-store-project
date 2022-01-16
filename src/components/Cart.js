@@ -1,6 +1,6 @@
 import { useSelector,useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { setCartUsers,setElement,setTotal,addOrder } from "../reducers/cart/cart";
+import { setCartUsers,setElement,setTotal,addOrder,deleteCartLength } from "../reducers/cart/cart";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -15,6 +15,7 @@ const state = useSelector((state) => {
       cartUsers: state.Cart.cartUsers,
       elementToDelete: state.Cart.elementToDelete,
       id: state.loginDetails.id,
+      cartLength: state.Cart.cartLength,
       total: state.Cart.total
     };
   });
@@ -85,6 +86,8 @@ const state = useSelector((state) => {
     arrayOrders[state.id-1].preOrders.push(order);
     console.log(arrayOrders);
     
+    const actiona = deleteCartLength();
+          dispatch(actiona);
     const actionf = addOrder(arrayOrders);
           dispatch(actionf);
           navigate("/previousorders");
